@@ -1,4 +1,31 @@
-.container {
+/* CSS transitions */
+a, li {
+	/* Unfortunately, it doesn't seem posible to do exclude background-position from all, so just don't use any sprites */
+	transition: all .25s cubic-bezier(0.64,0.20,0.02,0.35);
+	-webkit-transition: all .25s cubic-bezier(0.64,0.20,0.02,0.35);
+}
+
+img {
+	transition: all .3s cubic-bezier(0.64,0.20,0.02,0.35);
+	-webkit-transition: all .4s cubic-bezier(0.64,0.20,0.02,0.35);
+}
+
+input, textarea, button, label, option, select, .button, .hndle {
+	transition: all .25s cubic-bezier(0.64,0.20,0.02,0.35);
+	-webkit-transition: all .25s cubic-bezier(0.64,0.20,0.02,0.35);
+}
+/* End Transitions */
+
+body {
+	padding-top: 100px;
+	-webkit-font-smoothing: antialiased;
+   	-moz-osx-font-smoothing: grayscale;
+ 	// -moz-font-feature-settings: "kern";
+ 	// -moz-font-feature-settings: "kern=1";
+ 	// -ms-font-feature-settings: "kern";
+  // 	-o-font-feature-settings: "kern";
+  // 	-webkit-font-feature-settings: "kern";
+  // 	font-feature-settings: "kern";
 }
 
 @media (min-width: 768px){
@@ -12,11 +39,19 @@
     .navbar-nav>li {
         display: table-cell;
         float: none;
-        text-align: center;
         font-weight: 600;
+        font-size: 18px;
+        text-align: center;
         text-transform: uppercase;
     }
 } 
+
+// nav {
+// 	-webkit-box-shadow: 0px 0px 50px 1px rgba(0,0,0,0.4);
+// 	-moz-box-shadow: 0px 0px 50px 1px rgba(0,0,0,0.4);
+// 	box-shadow: 0px 0px 50px 1px rgba(0,0,0,0.4);
+// 	z-index: 999;
+// }
 
 h1,h2,h3,h4,h5 {
 	color: #9533a9;
@@ -24,31 +59,69 @@ h1,h2,h3,h4,h5 {
 
 .metadata {
 	font-family: "Avenir Next";
+	font-weight: 500;
 	color: #9533a9;
 }
 
 .main-page {
+	position: relative;
 	margin-top: -34px;
 	background: #9533a9;
 	min-height: 600px;
 	margin-bottom: 30px;
+	-webkit-box-shadow: inset 0px 0px 211px 0px rgba(0,146,214,.4);
+	-moz-box-shadow: inset 0px 0px 211px 0px rgba(0,146,214,.4);
+	box-shadow: inset 0px 0px 211px 0px rgba(0,146,214,.4);
+}
+
+.main-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.main-bg img {
+	width: 500px;
+	max-width: 100%;
+	opacity: 0.2;
+}
+
+.main-bg img:hover {
+	opacity: .8;
+}
+
+.brand {
+	width: 200px;
 }
 
 .latest-page {
+	background: rgba(26, 39, 51, 0.45);
+	position: relative;
 	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-bottom: 0.5px !important;
 	text-transform: uppercase;
 	font-family: "Avenir Next";
-	font-size: 25px;
+	font-size: 21px;
 	font-weight: 600;
 	color: #fff;
 	text-align: center;
-	background: rgba(26, 39, 51, 0.45);
+	// -webkit-box-shadow: 0px 0px 50px 1px rgba(0,0,0,0.4);
+	// -moz-box-shadow: 0px 0px 50px 1px rgba(0,0,0,0.4);
+	// box-shadow: 0px 0px 50px 1px rgba(0,0,0,0.4);
+	// z-index: 999;
 }
 
 .logo {
 	padding-top: 40px;
-	padding-bottom: 40px;
-	margin-left: 34%;
-	width: 30%;
+	padding-bottom: 55px;
+	margin-left: 35%;
+	width: 29%;
+	filter: drop-shadow(0px 0px 20px rgba(25,25,25,0.4));
+}
+
+.post {
+	margin-top: 50px;
 }
