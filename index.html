@@ -5,7 +5,19 @@ title: Pretty Weird Art
 {% include main.html %}
 
 <!-- New posts content -->
-{% for post in posts %}
+{% for post in site.posts %}
+<div class="row">
+	<div class="col-lg-offset-2 col-lg-8">
+		<div class="post">
+			<span class="metadata">{{ post.date }} :: Posted in: {{ post.categories }}</span>
+			<h3 style="margin-top: 0"><a href="{{ post.url }}"> {{ post.title }} </a></h3>
+			{{ post.excerpt }}
+			{% if post.excerpt != post.content %}
+			    <a href="{{ post.url }}">Read more...</a>
+			{% endif %}
+		</div>
+	</div>
+</div>	
 {% endfor %}
 
 <!-- Basic post format -->
