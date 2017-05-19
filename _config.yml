@@ -1,0 +1,7 @@
+name: prettyweirdart
+markdown: kramdown
+collections:
+  comics:
+    output: true
+  artworks:
+    output: true

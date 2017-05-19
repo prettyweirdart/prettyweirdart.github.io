@@ -1,4 +1,10 @@
 ---
 layout: default
-title: Pretty Weird Art
+title: Pretty Weird Art::Comics
 ---
+
+{% for comic in site.comics %}
+	<div class="thumbnail">
+		 <a href="{{ comic.url }}"><img src="{{ comic.image_path }}" /></a>
+	</div>
+{% endfor %}

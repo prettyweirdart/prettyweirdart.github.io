@@ -126,8 +126,15 @@ h1,h2,h3,h4,h5 {
 }
 
 footer {
+	font-family: "Avenir Next";
 	margin-top: 60px;
 	padding-top: 30px;
 	padding-bottom: 30px;
 	background: #252525;
+	color: #999;
 }
+
+footer a, h4 {
+	color: #999;
+}
+

@@ -2,3 +2,9 @@
 layout: default
 title: Pretty Weird Art
 ---
+
+{% for artwork in site.artworks %}
+	<div class="thumbnail">
+		 {{ content }}
+	</div>
+{% endfor %}

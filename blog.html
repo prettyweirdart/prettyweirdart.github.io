@@ -1,4 +1,14 @@
 ---
 layout: default
-title: Pretty Weird Art
+title: Pretty Weird Art::Blog
 ---
+
+{% for post in site.posts %}
+<div class="row">
+	<div class="col-lg-offset-2 col-lg-8">
+		<div class="post">	
+		 {{ content }}
+		</div>
+	</div>
+</div>
+{% endfor %}

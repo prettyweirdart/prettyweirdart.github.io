@@ -2,3 +2,9 @@
 layout: default
 title: Pretty Weird Art
 ---
+
+{% for event in site.schedule %}
+	<div class="thumbnail">
+		 {{ content }}
+	</div>
+{% endfor %}
