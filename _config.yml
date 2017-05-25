@@ -5,3 +5,5 @@ collections:
     output: true
   artworks:
     output: true
+  conventions:
+    output: true

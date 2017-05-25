@@ -3,8 +3,11 @@ layout: default
 title: Pretty Weird Art
 ---
 
-{% for event in site.schedule %}
-	<div class="thumbnail">
-		 {{ content }}
+<div class="row">
+	<div class="col-lg-10">
+		{% for convention in site.conventions %}
+			<a href="{{ convention.url }}"><h4>{{ convention.date }}<br />
+			{{ convention.title }}</h4></a>
+		{% endfor %}
 	</div>
-{% endfor %}
+</div>

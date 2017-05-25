@@ -7,7 +7,11 @@ title: Pretty Weird Art::Blog
 <div class="row">
 	<div class="col-lg-offset-2 col-lg-8">
 		<div class="post">
-			<span class="metadata">{{ post.date }} :: Posted in: {{ post.categories }}</span>
+			<span class="metadata"><a href="{{ date.url }}">{{ post.date | date_to_long_string }}</a> :: Posted in: 
+			{% for category in post.categories %}
+				<a href="{{ category.url }}">{{ category }}</a>
+			{% endfor %}
+			</span>
 			<h3 style="margin-top: 0"><a href="{{ post.url }}"> {{ post.title }} </a></h3>
 			{{ post.excerpt }}
 			{% if post.excerpt != post.content %}

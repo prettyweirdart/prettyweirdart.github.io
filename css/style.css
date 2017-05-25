@@ -138,3 +138,25 @@ footer a, h4 {
 	color: #999;
 }
 
+.center {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+input {
+	width: 100%;
+}
+
+textarea {
+	width: 100%;
+}
+
+footer li {
+	list-style: none;
+}
+
+label {
+	margin-top: 20px;
+}
+
