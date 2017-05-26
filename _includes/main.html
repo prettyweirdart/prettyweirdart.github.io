@@ -4,7 +4,7 @@
 	<div class="main-bg animated fadeInLeft">
 		<!-- Add jekyl markdown for proper image source here. -->
 		{% for comic in site.comics limit:3 %}
-			<div class="col-lg-4 animated " style="margin:0; padding:0;">
+			<div class="col-lg-4 animated zoomInDown" style="margin:0; padding:0;">
 				<a href="{{ comic.url }}"><img src="{{ comic.image_path }}" /></a>
 			</div>
 		{% endfor %}
