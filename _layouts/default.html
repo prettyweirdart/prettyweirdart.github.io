@@ -22,7 +22,20 @@
     {% include header.html %}
    
     <div class="container">
+
+        {% if page.id %}
+            <div class="row">
+                <div class="col-lg-offset-2 col-lg-8">
+                    <h3> {{ page.title }} </h3>
+        {% endif %}
+
         {{ content }}
+
+        {% if page.id %}
+                </div>
+            </div>
+        {% endif %}
+
     </div>
 
     {% include footer.html %}
