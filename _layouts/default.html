@@ -14,27 +14,31 @@
     <link href="{{ site.baseurl }}/css/style.css" rel="stylesheet">
     <link href="{{ site.baseurl }}/css/animate.css" rel="stylesheet">
     <link href="https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?cp0z2c">
 
 </head>
 
 <body>
 
     {% include header.html %}
+    <div class="white">
    
-    <div class="container">
+        <div class="container">
 
-        {% if page.id %}
-            <div class="row">
-                <div class="col-lg-offset-2 col-lg-8">
-                    <h3> {{ page.title }} </h3>
-        {% endif %}
+            {% if page.id %}
+                <div class="row">
+                    <div class="col-lg-offset-2 col-lg-8">
+                        <h3> {{ page.title }} </h3>
+            {% endif %}
 
-        {{ content }}
+            {{ content }}
 
-        {% if page.id %}
+            {% if page.id %}
+                    </div>
                 </div>
-            </div>
-        {% endif %}
+            {% endif %}
+
+        </div>
 
     </div>
 
@@ -43,7 +47,7 @@
 <!-- scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="../js/breathing-halftone.pkgd.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script>
     $(function () {
       $(document).scroll(function () {

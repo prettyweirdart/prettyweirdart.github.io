@@ -17,7 +17,9 @@ title: Pretty Weird Art
 			<h3 style="margin-top: 0"><a href="{{ post.url }}"> {{ post.title }} </a></h3>
 			{{ post.excerpt }}
 			{% if post.excerpt != post.content %}
-			    <a href="{{ post.url }}">Read more...</a>
+				<p style="margin-top:-18px;">
+				    <a href="{{ post.url }}">Read more...</a>
+				</p>
 			{% endif %}
 		</div>
 	</div>

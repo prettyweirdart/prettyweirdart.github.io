@@ -16,6 +16,10 @@ input, textarea, button, label, option, select, .button, .hndle {
 }
 /* End Transitions */
 
+html {
+	min-height: 100%;
+}
+
 body {
 	padding-top: 100px;
 	-webkit-font-smoothing: antialiased;
@@ -26,6 +30,8 @@ body {
   // 	-o-font-feature-settings: "kern";
   // 	-webkit-font-feature-settings: "kern";
   // 	font-feature-settings: "kern";
+  min-height: 100%;
+  background: #252525;
 }
 
 @media (min-width: 768px){
@@ -125,9 +131,14 @@ h1,h2,h3,h4,h5 {
 	margin-top: 50px;
 }
 
+.white {
+	background: #fff;
+	padding-bottom: 60px;
+}
+
 footer {
 	font-family: "Avenir Next";
-	margin-top: 60px;
+	font-size: 80%;
 	padding-top: 30px;
 	padding-bottom: 30px;
 	background: #252525;
@@ -136,6 +147,27 @@ footer {
 
 footer a, h4 {
 	color: #999;
+}
+
+footer a:hover {
+	color: #eee;
+}
+
+footer ul {
+	border: 1px solid #333;
+	border-radius: 2px;
+	background: #222;
+	padding: 3px 20px 20px 20px;
+	min-height: 250px;
+}
+
+footer li {
+	list-style: none;
+	border-top: 1px solid #333;
+}
+
+footer li:last-child {
+	border-bottom: 1px solid #333;
 }
 
 .center {
@@ -152,11 +184,11 @@ textarea {
 	width: 100%;
 }
 
-footer li {
-	list-style: none;
-}
-
 label {
 	margin-top: 10px;
+}
+
+.grid-item {
+	width: 200px;
 }
 

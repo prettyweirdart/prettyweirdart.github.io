@@ -2,9 +2,10 @@
 layout: default
 title: Pretty Weird Art
 ---
-
-{% for artwork in site.artworks %}
-	<div class="thumbnail">
-		 {{ content }}
-	</div>
-{% endfor %}
+<div class="grid">
+	{% for artwork in site.artworks %}
+		<div class="grid-item">
+			 <a href="{{ artwork.url }}"> <img src="{{ artwork.image_path }}" /> </a>
+		</div>
+	{% endfor %}
+</div>
