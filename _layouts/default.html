@@ -22,24 +22,29 @@
 
     {% include header.html %}
     <div class="white">
-   
         <div class="container">
-
+            
             {% if page.id %}
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-8">
-                        <h3> {{ page.title }} </h3>
+                        <div class="post">
+                            <span class="metadata"><a href="">{{ page.date | date_to_long_string }}</a> :: Posted in: 
+                            {% for category in page.categories %}
+                                <a href="/categories/#{{ category }}">{{ category }}</a>
+                            {% endfor %}
+                            </span>
+                            <h3 style="margin-top:0;"> {{ page.title }} </h3>
             {% endif %}
 
             {{ content }}
 
             {% if page.id %}
+                        </div>
                     </div>
                 </div>
             {% endif %}
 
         </div>
-
     </div>
 
     {% include footer.html %}

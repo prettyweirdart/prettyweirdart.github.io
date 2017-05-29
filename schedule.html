@@ -4,13 +4,11 @@ title: Pretty Weird Art
 ---
 
 <div class="row">
-	<div class="col-lg-offset-2 col-lg-8">
+	<div class="col-lg-offset-1 col-lg-10">
 		<table>
-
 		{% for convention in site.conventions %}
 			<tr>
-				<td><a href="{{ convention.url }}"><h4>{{ convention.date }}</td>
-				<td>{{ convention.title }}</h4></a></td>
+				<td><a href="{{ convention.url }}"><h5>{{ convention.date | date_to_long_string }}: {{ convention.title }} – {{ convention.location }}</h5></a></td>
 				{{ convention.content }}
 			</tr>
 		{% endfor %}
