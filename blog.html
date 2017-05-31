@@ -4,10 +4,10 @@ title: Pretty Weird Art::Blog
 ---
 <div class="row">
 	<div class="col-lg-2">
-		<h4>Categories</h4>
+		<h5>Categories</h5>
 		<ul class="cat-list">
 			{% for category in site.categories %}
-				<li><a href="/categories/#{{ category | first}}">{{ category | first }}</a></li>
+				<li><a href="/categories/#{{ category | first }}">{{ category | first }}</a></li>
 			{% endfor %}
 		</ul>	
 	</div>
@@ -16,9 +16,9 @@ title: Pretty Weird Art::Blog
 		{% for post in site.posts %}
 			<div class="row">
 				<div class="post">
-					<span class="metadata"><a href="{{ date.url }}">{{ post.date | date_to_long_string }}</a> :: Posted in: 
+					<span class="metadata"><a href="">{{ post.date | date_to_long_string }}</a> :: Posted in: 
 					{% for category in post.categories %}
-						<a href="/categories/#{{ category | first }}">{{ category }}</a>
+						<a href="/categories/#{{ category }}">{{ category }}</a>
 					{% endfor %}
 					</span>
 					<h3 style="margin-top: 0"><a href="{{ post.url }}"> {{ post.title }} </a></h3>
