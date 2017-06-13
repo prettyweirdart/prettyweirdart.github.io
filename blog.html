@@ -2,8 +2,10 @@
 layout: default
 title: Pretty Weird Art::Blog
 ---
+</div>
+
 <div class="row">
-	<div class="col-lg-2">
+	<div class="col-lg-3 col-lg-offset-1">
 		<h5>Categories</h5>
 		<ul class="cat-list">
 			{% for category in site.categories %}
@@ -12,7 +14,7 @@ title: Pretty Weird Art::Blog
 		</ul>	
 	</div>
 
-	<div class="col-lg-8">
+	<div class="col-lg-5">
 		{% for post in site.posts %}
 			<div class="row">
 				<div class="post">
