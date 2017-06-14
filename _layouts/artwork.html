@@ -17,6 +17,16 @@
     <link href="https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?cp0z2c">
 
+    <style>
+        body {
+            padding-top: 0;
+        }
+        .navbar {
+            border: none;
+            margin-bottom: 0;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -24,28 +34,31 @@
     {% include header.html %}
     <div class="white">
         <div class="container">
-            
-            {% if page.id %}
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="post">
-                            <span class="metadata"><a href=""></a> :: Posted in: 
-                            {% for category in page.categories %}
-                                <a href="/categories/#{{ category }}">{{ category }}</a>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="center">
+                        <a href="{{ page.image_path }}" ><img style="max-width: 100%;" src="{{ page.image_path }}" /></a><br />
+                        <ul class="pagination">
+                            {% assign comics = site.comics | sort:'title' %}
+                            {% assign pagenum = 0 %}
+                            {% for comic in comics %}
+                                {% if comic.title == page.title %}
+                                    {% assign pagenum = pagenum | plus: 1 %}
+                                    <li class="{% if comic.url == page.url %} active {% endif %}"><a href="{{ comic.url }}">{{ pagenum }}</a></li>
+                                {% endif %}
                             {% endfor %}
-                            </span>
-                            <h3 style="margin-top:0;"> {{ page.title }} </h3>
-            {% endif %}
-
-            {{ content }}
-
-            {% if page.id %}
-                        </div>
+                        </ul>
                     </div>
                 </div>
-            {% endif %}
-
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="center">
+                        <h3 style="margin-top: -15px">{{ page.title }}</h3>
+                    </div>
+                    {{ content }}
+                </div>
+            </div>       
         </div>
     </div>
 
@@ -58,6 +71,9 @@
 <script src="{{ site.baseurl }}/js/isinviewport.min.js"></script>
 <script>
     $(function () {
+        var $navbar = $(".navbar-default");
+        $navbar.removeClass('navbar-fixed-top');
+
       $(document).scroll(function () {
         var $nav = $(".inverse");
         $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());

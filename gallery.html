@@ -3,9 +3,22 @@ layout: default
 title: Pretty Weird Art
 ---
 <div class="grid">
-	{% for artwork in site.artworks %}
-		<div class="grid-item">
-			 <a href="{{ artwork.url }}"> <img src="{{ artwork.image_path }}" /> </a>
-		</div>
+	{% assign prevtitle = '' %}
+	{% assign artworks = site.artworks | sort:'title' %}
+	{% for artwork in artworks %}
+		{% if forloop.first %}
+			<div class="grid-item hvr-shrink">
+				<a href="{{ artwork.url }}"><img src="{{ artwork.image_path }}" /></a>
+			</div>
+			{% assign prevtitle = artwork.title %}
+			{% else %}
+				<h1>{{ previndex }}</h1>
+				{% if artwork.title != prevtitle %}
+					<div class="grid-item hvr-shrink">
+						 <a href="{{ artwork.url }}"><img class="hvr-fade" src="{{ artwork.image_path }}" /></a>
+					</div>
+					{% assign prevtitle = artwork.title %}
+				{% endif %}
+		{% endif %}
 	{% endfor %}
 </div>

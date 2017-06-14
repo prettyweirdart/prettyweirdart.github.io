@@ -37,6 +37,11 @@ nav {
 
 h1,h2,h3,h4,h5 {
 	color: #9533a9;
+}
+
+label {
+	font-size: 18px;
+	font-weight: 600;
 } 
 
 .inverse {
@@ -55,10 +60,37 @@ h1,h2,h3,h4,h5 {
 	margin-bottom: 0;
 }
 
+.inverse a {
+	color: #ddd;
+}
+
+.inverse a:hover {
+	color: #fff;
+}
+
 .metadata {
 	font-family: "Avenir Next";
 	font-weight: 500;
 	color: #9533a9;
+}
+
+.metadata ul {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+.metadata ul li {
+	display: inline;
+	list-style: none;
+}
+
+.metadata ul li:after {
+	content: ", ";
+}
+
+.metadata ul li:last-child:after {
+	content: "";
 }
 
 .main-page {
@@ -137,6 +169,12 @@ h1,h2,h3,h4,h5 {
 	margin-right: auto;
 }
 
+.more {
+	font-size: 20px;
+	font-weight: 600;
+	font-style: italic;
+}
+
 .white {
 	background: #fff;
 	padding: 30px 0 60px 0;
@@ -151,7 +189,11 @@ footer {
 	color: #999;
 }
 
-footer a, h4 {
+footer a {
+	color: #999;
+}
+
+footer h4 {
 	color: #999;
 }
 
@@ -164,7 +206,6 @@ footer ul {
 	border-radius: 2px;
 	background: #222;
 	padding: 3px 20px 20px 20px;
-	min-height: 250px;
 }
 
 footer li {
@@ -214,7 +255,7 @@ footer li:last-child {
 }
 
 .brand {
-	opacity: 0.8;
+	opacity: 0.9;
 }
 
 .brand:hover {
@@ -254,6 +295,7 @@ label {
 }
 
 .cat-list {
+	text-align: right;
 	padding-left: 0;
 	font-family: "Avenir Next";
 	font-weight: 500;
@@ -276,6 +318,9 @@ label {
 		width: 70%;
 		margin-left: 15%;
 	}
+	 .header-icons {
+    	display: none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -299,12 +344,15 @@ label {
 	}
 	.brand {
 		margin-top: 10px;
-		width: 300px;
+		width: 250px;
 	}
 	.navbar-nav>li {
         font-weight: 700;
         font-size: 19px;
         text-transform: uppercase;
+    }
+     .header-icons {
+    	display: none;
     }
 }
 
@@ -349,4 +397,8 @@ label {
 	.toggled {
 		display: none;
 	}
+
+	footer ul {
+    	min-height: 250px;
+    }
 } 

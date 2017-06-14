@@ -4,14 +4,22 @@ title: Pretty Weird Art
 ---
 
 <div class="row">
-	<div class="col-lg-offset-1 col-lg-10">
-		<table>
-		{% for convention in site.conventions %}
-			<tr>
-				<td><a href="{{ convention.url }}"><h5>{{ convention.date | date_to_long_string }}: {{ convention.title }} – {{ convention.location }}</h5></a></td>
-				{{ convention.content }}
-			</tr>
-		{% endfor %}
-		</table>
+	<div class="col-lg-8 col-lg-offset-2">
+		<div class="post">
+			<table class="table table-striped table-hover">
+				<thead><h3>Upcoming Convention Schedule</h3></thead>
+				<tbody>
+				{% for convention in site.conventions %}
+						<tr>
+							<td><a href="{{ convention.url }}"><h5>{{ convention.date | date_to_long_string }}: {{ convention.title }} – {{ convention.location }}</h5></a></td>
+						</tr>
+						<tr>
+							<td>{{ convention.excerpt }}</td>
+						</tr>
+					</a>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>

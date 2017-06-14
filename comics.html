@@ -3,9 +3,22 @@ layout: default
 title: Pretty Weird Art::Comics
 ---
 <div class="grid">
-	{% for comic in site.comics %}
-		<div class="grid-item">
-			 <a href="{{ comic.url }}"><img src="{{ comic.image_path }}" /></a>
-		</div>
+	{% assign prevtitle = '' %}
+	{% assign comics = site.comics | sort:'title' %}
+	{% for comic in comics %}
+		{% if forloop.first %}
+			<div class="grid-item hvr-shrink">
+				<a href="{{ comic.url }}"><img src="{{ comic.image_path }}" /></a>
+			</div>
+			{% assign prevtitle = comic.title %}
+			{% else %}
+				<h1>{{ previndex }}</h1>
+				{% if comic.title != prevtitle %}
+					<div class="grid-item hvr-shrink">
+						 <a href="{{ comic.url }}"><img class="hvr-fade" src="{{ comic.image_path }}" /></a>
+					</div>
+					{% assign prevtitle = comic.title %}
+				{% endif %}
+		{% endif %}
 	{% endfor %}
 </div>
