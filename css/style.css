@@ -305,6 +305,10 @@ label {
 .nav li a:hover {
 }
 
+.navbar-toggle {
+	margin-right:0;
+}
+
 .icon-bar {
 	height: 4px !important;
 	background:#9533a9 !important;
@@ -343,8 +347,8 @@ label {
 		padding-top: 70px;
 	}
 	.brand {
-		margin-top: 10px;
-		width: 200px;
+		margin-top: 17px;
+		width: 225px;
 	}
 	.navbar-nav>li {
         font-weight: 700;
