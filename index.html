@@ -5,25 +5,26 @@ title: Pretty Weird Art
 {% include main.html %}
 
 <!-- New posts content -->
-{% for post in site.posts %}
 <div class="row">
 	<div class="col-lg-offset-2 col-lg-8">
-		<div class="post">
-			<span class="metadata"><a href="">{{ post.date | date_to_long_string }}</a> :: Posted in: 
-				<ul>
-				{% for category in post.categories %}
-					<li><a href="/categories#{{ category }}">{{ category }}</a></li>
-				{% endfor %}
-				</ul>
-			</span>
-			<h3 style="margin-top: 0"><a href="{{ post.url }}"> {{ post.title }} </a></h3>
-			{{ post.excerpt }}
-			{% if post.excerpt != post.content %}
-				<p style="margin-top:-18px;">
-				    <a class="more" href="{{ post.url }}">Read more...</a>
-				</p>
-			{% endif %}
-		</div>
+		<h1>Latest News</h1>
+		{% for post in site.posts %}
+			<div class="post">
+				<span class="metadata"><a href="">{{ post.date | date_to_long_string }}</a> :: Posted in: 
+					<ul>
+					{% for category in post.categories %}
+						<li><a href="/categories#{{ category }}">{{ category }}</a></li>
+					{% endfor %}
+					</ul>
+				</span>
+				<h3 style="margin-top: 0"><a href="{{ post.url }}"> {{ post.title }} </a></h3>
+				{{ post.excerpt }}
+				{% if post.excerpt != post.content %}
+					<p style="margin-top:-18px;">
+					    <a class="more" href="{{ post.url }}">Read more...</a>
+					</p>
+				{% endif %}
+			</div>
+		{% endfor %}
 	</div>
 </div>	
-{% endfor %}

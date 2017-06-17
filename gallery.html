@@ -1,7 +1,18 @@
 ---
 layout: default
-title: Pretty Weird Art
+title: "Gallery"
 ---
+<div class="row">
+	<div class="col-lg-6">
+		<h1>Gallery</h1>
+	</div>
+	<div class="col-lg-6">
+		<form style="margin-top: 40px;" action="/search.html" method="get">
+			<input type="text" id="search-box" name="query">
+			<input type="submit" class="btn btn-primary" value="search">
+		</form>
+	</div>
+</div>
 <div class="grid">
 	{% assign prevtitle = '' %}
 	{% assign artworks = site.artworks | sort:'title' %}

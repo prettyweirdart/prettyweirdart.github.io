@@ -1,36 +1,40 @@
 ---
 layout: default
-title: Pretty Weird Art::Blog
+title: "Blog"
 ---
-
-
+<div class="row">
 	<div class="col-lg-8 col-lg-offset-2">
+		<h1>A Pretty Weird Blog</h1>
 		{% for post in site.posts %}
-			<div class="row">
-				<div class="post">
-					<span class="metadata"><a href="">{{ post.date | date_to_long_string }}</a> :: Posted in: 
-						<ul>
-						{% for category in post.categories %}
-							<li><a href="/categories#{{ category }}">{{ category }}</a></li>
-						{% endfor %}
-						</ul>
-					</span>
-					<h3 style="margin-top: 0"><a href="{{ post.url }}"> {{ post.title }} </a></h3>
-					{{ post.excerpt }}
-					{% if post.excerpt != post.content %}
-						<p style="margin-top:-10px;">
-						    <a class="more" href="{{ post.url }}">Read more...</a>
-						</p>
-					{% endif %}
-				</div>
+			<div class="post">
+				<span class="metadata"><a href="">{{ post.date | date_to_long_string }}</a> :: Posted in: 
+					<ul>
+					{% for category in post.categories %}
+						<li><a href="/categories#{{ category }}">{{ category }}</a></li>
+					{% endfor %}
+					</ul>
+				</span>
+				<h3 style="margin-top: 0"><a href="{{ post.url }}"> {{ post.title }} </a></h3>
+				{{ post.excerpt }}
+				{% if post.excerpt != post.content %}
+					<p style="margin-top:-10px;">
+					    <a class="more" href="{{ post.url }}">Read more...</a>
+					</p>
+				{% endif %}
 			</div>
 		{% endfor %}
 	</div>
 	<div class="col-lg-2">
-		<h4 style="margin-bottom: 0; margin-top: 75px; text-align: right;">Categories</h4>
+		<form style="margin-top: 40px;" action="/search.html" method="get">
+			<input type="text" id="search-box" name="query">
+			<input type="submit" class="btn btn-primary" value="search">
+		</form>
+
+		<h4 style="margin-bottom: 0; text-align: right;">Categories</h4>
 		<ul class="cat-list">
 			{% for category in site.categories %}
 				<li><a href="/categories#{{ category | first }}">{{ category | first }}</a></li>
 			{% endfor %}
 		</ul>	
 	</div>
+</div>
