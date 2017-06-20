@@ -35,8 +35,15 @@ nav {
 	z-index: 999;
 }
 
-.navbar-inverse {
+.navbar-brand {
 	border: none;
+}
+
+.navbar-inverse {
+	border: none !important;
+}
+.navbar-collapse {
+	border: none !important;
 }
 
 h1,h2,h3,h4,h5 {
@@ -228,14 +235,14 @@ footer li:last-child {
 
 div.header-icons {
 	font-size: 22px;
-	margin-top: -48px;
+	margin-top: -42px;
 	margin-bottom: -50px;
 	line-height:.5;
 	text-shadow: 1px 1px 1px rgba(0,0,0, 0.05);
 }
 
 .header-icons a {
-	color: #eee;
+	color: #ddd;
 	padding: 0 5px 0 5px;
 }
 
@@ -274,6 +281,18 @@ label {
 	margin-top: 10px;
 }
 
+.btn {
+	font-family: "Avenir Next";
+}
+
+.dropzone {
+	text-align: center;
+	color: #bbb;
+	background: #efefef;
+	border: 1px dashed #eee;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
 .grid-item {
 	width: 33%;
 	padding: 5px;
@@ -291,23 +310,6 @@ label {
 	font-weight: 500;
 	list-style-type: none;
 }
-	
-.nav li a {
-	line-height: 1.2;
-	padding: 0;
-	margin: 26px 20px 25px 20px;
-	/* text-transform: uppercase; */
-	text-shadow: 1px 1px 1px rgba(0,0,0, 0.05);
-}
-
-.nav li a:hover {
-	color: #61216e;
-	border-bottom: 2px solid #fff;
-}
-.active {
-	color: #fff !important;
-	border-bottom: 2px solid #fff;
-}
 
 .navbar-toggle {
 	margin-right:0;
@@ -319,16 +321,20 @@ label {
 }
 
 .navbar-brand {
-	margin: 12px 0 -10px 0;
-	padding-bottom: 0;
-	padding-top: 0;
+	padding-top: 5px;
+	padding-right: 20px;
 }
 
 .navbar-brand img {
 	width: 225px;
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+.nav>li a {
+	font-weight: 600;
+	letter-spacing: -.5px;
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
 	.navbar-collapse.collapse {
         display: none !important;
     }
@@ -341,6 +347,9 @@ label {
     .navbar-header {
         float:none;
     }
+    .navbar-brand {
+    	padding-top: 12px;
+    }
 	.logo {
 		padding-top: 40px;
 		padding-bottom: 45px;
@@ -350,26 +359,21 @@ label {
 	.header-icons {
     	display: none;
     }
-    .navbar-brand {
-    	margin-top: 18px;
-    	padding: 0;
+    .nav>li a {
+    	text-align: center;
     }
 }
 
 @media (max-width: 768px) {
-	.navbar-brand {
-		text-align: center;
-		margin-left:auto;
-		margin-right:auto;
-		border:none;
-	}
 	.logo { 
 		padding-top: 40px;
 		padding-bottom: 45px;
 		width: 70%;
 		margin-left: 15%;
 	}
-
+	.navbar-brand {
+    	padding-top: 12px;
+    }
 	.inverse {
 		display: none;
 	}
@@ -377,15 +381,15 @@ label {
 	body {
 		padding-top: 55px;
 	}
-	
-	.navbar-nav>li {
-        font-weight: 600;
-        font-size: 18px;
-        letter-spacing: -1px;
-    }
     
     .header-icons {
     	display: none;
+    }
+    .nav>li a {
+    	text-align: center;
+    }
+    .nav>li a:hover {
+    	border-bottom: none;
     }
 }
 
@@ -406,13 +410,6 @@ label {
         text-align: center;
         text-transform: uppercase;
     } */
-    
-    .navbar-nav>li {
-        font-weight: 600;
-        font-size: 18px;
-        letter-spacing: -.5px;
-        
-    }
 
     /* .brand {
 		width: 350px;
@@ -441,12 +438,13 @@ label {
 }
 
 @media (min-width: 1440px) {
-  .navbar-nav.navbar-center {
-    position: absolute;
-    left: 53%;
-    transform: translatex(-50%);
-  }
-  .nav {
-	height: 55px;
-  }
+	.navbar-nav.navbar-center {
+		position: absolute;
+		left: 53%;
+		transform: translatex(-50%);
+	}
+  .active {
+		color: #fff !important;
+		border-bottom: 2px solid #fff;
+	}
 } 

@@ -12,7 +12,7 @@
 			</div>
 			<div class="col-lg-4">
 				<ul>
-					<h4>Recent Comics</h4>
+					<h4>Recent Comics Updates</h4>
 					{% assign sorted = ((site.comics | sort: 'date') | reverse) | limit: 6 %}
 					{% for comic in sorted %}
 						<li><a href="{{ comic.url }}">{{ comic.title }}</a></li>
