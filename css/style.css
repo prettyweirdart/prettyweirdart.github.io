@@ -326,7 +326,7 @@ label {
 }
 
 .navbar-brand img {
-	width: 100px;
+	width: 225px;
 }
 
 .nav>li a {
@@ -374,6 +374,9 @@ label {
 	.navbar-brand {
     	padding-top: 12px;
     }
+    .navbar-brand img {
+		width: 110px;
+	}
 	.inverse {
 		display: none;
 	}
