@@ -2,11 +2,8 @@
 
 <div class="main-page">
 	<div class="main-bg animated fadeInLeft">
-		<!-- Add jekyl markdown for proper image source here. -->
-		{% for comic in site.comics limit:3 %}
-			<div class="col-lg-4" style="">
-				<div class="bg-scroll" style="top:-200px; height:1500px; width: 900px; background: url({{ comic.image_path }});"></div>
-			</div>
+		{% for comic in site.comics limit:1 %}
+			<div class="" style="top:-200px; height:1500px; width: 900px; background: url({{ comic.image_path }});"></div>
 		{% endfor %}
 	</div>	
 	<div class="logo animated bounceInLeft"><img src="../images/prettyweirdart_logomark.svg" /></div>
