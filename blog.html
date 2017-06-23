@@ -26,11 +26,13 @@ title: "Blog"
 	</div>
 	<div class="col-lg-2">
 		<form style="margin-top: 40px;" action="/search.html" method="get">
-			<input type="text" id="search-box" name="query">
-			<input type="submit" class="btn btn-primary" value="search">
+			<div>
+				<input type="text" id="search-box" name="query" placeholder="Search...">
+				<span class="fa fa-search" style="float: right; margin-top: -27px;"></span>
+			</div>
 		</form>
 
-		<h4 style="margin-bottom: 0; text-align: right;">Categories</h4>
+		<h4 style="margin-bottom: 0; text-align: right; margin-top: 30px;">Categories</h4>
 		<ul class="cat-list">
 			{% for category in site.categories %}
 				<li><a href="/categories#{{ category | first }}">{{ category | first }}</a></li>

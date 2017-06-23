@@ -14,9 +14,8 @@
     <link href="{{ site.baseurl }}/css/style.css" rel="stylesheet">
     <link href="{{ site.baseurl }}/css/animate.css" rel="stylesheet">
     <link href="{{ site.baseurl }}/css/hover.min.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ site.baseurl }}/plugins/trumbo/dist/ui/trumbowyg.css">
-    <link href="https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?cp0z2c">
 
 </head>
 
@@ -54,23 +53,32 @@
 <!-- scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="{{ site.baseurl }}/js/isinviewport.min.js"></script>
 <script src="{{ site.baseurl }}/plugins/trumbo/dist/trumbowyg.js"></script>
 <script src="{{ site.baseurl }}/plugins/dropzone/dropzone.js"></script>
 <script>
-    $('.grid').masonry({
-      // options
-      itemSelector: '.grid-item' });
-    /** Default editor configuration **/
+    // Strip Variable data from uri.
+    var liquidRetrievalVars = window.location.hash.split('#')[1];
+
+    // Hide extra data, then display for select page items.
+    $(document).ready(function() {
+        $('.do-not-display').hide();
+        $('.comic-title').html( liquidRetrievalVars );
+        var titleClass = liquidRetrievalVars.replace(/ /g, '-').split('page')[0];
+        $('.'+titleClass).show();
+     });
+
+    // Enable Trumbo Editor.
     $.trumbowyg.svgPath = '{{ site.baseurl }}/plugins/trumbo/dist/ui/icons.svg';
     $('#editor').trumbowyg();
+    // Populate Trumbo Content on Edit pages.
+    var editorContent = '';
+    $('#editor').trumbowyg('html', editorContent);
+    
+    // Enable Drag-and-Drop Image 'upload.'
     $("div#image-selection").dropzone({ url: "/file/post" });
+    
+    // Append active class to items with page id.
     $('#{{ page.title }}').addClass('active');
-    $(document).ready(function() {
-        var comicTitle = window.location.hash.split('#')[1];
-        $('.comic-title').html( comicTitle );
-     });
 </script>
 </body>
 

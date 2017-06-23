@@ -14,8 +14,7 @@
     <link href="{{ site.baseurl }}/css/style.css" rel="stylesheet">
     <link href="{{ site.baseurl }}/css/animate.css" rel="stylesheet">
     <link href="{{ site.baseurl }}/css/hover.min.css" rel="stylesheet">
-    <link href="https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?cp0z2c">
+    <link href="{{ site.baseurl }}/css/font-awesome.min.css" rel="stylesheet">
 
     <style>
         .navbar {
@@ -47,7 +46,7 @@
                                         <li class="{% if pagenum == 1 %} disabled {% endif %}"><a href="{% if pagenum != 1 %}{{ prev_page_url }}{% else %} # {% endif %}">«</a></li> 
                                         {% assign prev-page = 0 %}
                                     {% endif %}
-                                    <li class="{% if comic.url == page.url %} active {% assign prev-page = 1 %} {% endif %}"><a href="{{ comic.url }}">{{ pagenum }}</a></li>
+                                    <li class="{% if comic.url == page.url %} active {% assign prev-page = 1 %} {% endif %}"><a href="{{ comic.url }}">{{ comic.page_num }}</a></li>
                                     {% assign pagenum = pagenum | plus: 1 %}
                                     {% assign prev_page_url = comic.url %}
                                     {% if comic.url == page.url %}
