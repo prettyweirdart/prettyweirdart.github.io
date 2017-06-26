@@ -280,7 +280,6 @@ textarea {
 }
 
 label {
-	margin-top: 10px;
 }
 
 .btn {
@@ -376,7 +375,7 @@ label {
 		margin-left: 15%;
 	}
 	.navbar-brand {
-    	padding-top: 12px;
+    	padding-top: 14px;
     }
     .navbar-brand img {
     	width: 200px;
@@ -452,6 +451,6 @@ label {
 	}
   .active {
 		color: #fff !important;
-		border-bottom: 2px solid #fff;
+		border-bottom: 1.5px solid #fff;
 	}
 } 
