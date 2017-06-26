@@ -5,15 +5,16 @@ title: "Manage Comics"
 
 <div class="row">
 	<div class="col-lg-10 col-lg-offset-1">
-		<h5 style="display:inline">Admin>Manage Comics></h5>
+		<h5 style="display:inline">Admin></h5><a href="{{ site.baseurl }}/admin/manage-comics.html"><h5 style="display:inline;">Manage Comics></h5></a>
 		<div class="post">
-			<h1>Manage Comics</h1>
+			<h2>Manage Comics</h2>
 			<table class="table table-striped table-hover">
 				<h4 style="display: inline;">Title</h4>
 				<div class="pull-right">
 					 <a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#comic-modal" style="margin-right: 8px; margin-bottom: 8px;" href="#"><span class="fa fa-file"></span> Add New Comic</a>
 				</div>
 				<tbody>
+					{% assign pagecount = 0 %}
 					{% assign prevtitle = '' %}
 					{% assign comics = site.comics | sort:'title' %}
 					{% for comic in comics %}
@@ -30,7 +31,9 @@ title: "Manage Comics"
 							</tr>
 							{% assign prevtitle = comic.title %}
 						{% else %}
+							{% assign pagecount = pagecount | plus: 1 %}
 							{% if comic.title != prevtitle %}
+								{% assign pagecount = 1 %}
 								<tr>
 									<td>
 										<a href="{{ site.baseurl }}/admin/manage-pages.html#{{ comic.title }}">

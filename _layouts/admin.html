@@ -44,7 +44,6 @@
                     </div>
                 </div>
             {% endif %}
-
         </div>
     </div>
 
@@ -58,21 +57,27 @@
 <script>
     // Strip Variable data from uri.
     var liquidRetrievalVars = window.location.hash.split('#')[1];
+    var titleClass = liquidRetrievalVars.replace(/ /g, '-').split('page')[0];
+    var comicVar = liquidRetrievalVars.split('Page')[0];   
 
     // Hide extra data, then display for select page items.
-    $(document).ready(function() {
-        $('.do-not-display').hide();
-        $('.comic-title').html( liquidRetrievalVars );
-        var titleClass = liquidRetrievalVars.replace(/ /g, '-').split('page')[0];
-        $('.'+titleClass).show();
-     });
+    $('.do-not-display').hide();
+    $('.comic-title').html( liquidRetrievalVars );
+    $('.'+titleClass).show();
+
+    // Append URL variables in order to populate page data.
+    $('.comic-variable').attr("href", function(i, href) { return href + comicVar; });
+    $('.page-variable').attr("href", function(i, href) { return href + liquidRetrievalVars; });
 
     // Enable Trumbo Editor.
     $.trumbowyg.svgPath = '{{ site.baseurl }}/plugins/trumbo/dist/ui/icons.svg';
     $('#editor').trumbowyg();
-    // Populate Trumbo Content on Edit pages.
-    var editorContent = '';
-    $('#editor').trumbowyg('html', editorContent);
+
+    // Retrieve page content based on hashed url.
+
+    // Populate Trumbo editor with page content on Edit pages.
+    /* var editorContent = '';
+    $('#editor').trumbowyg('html', editorContent); */
     
     // Enable Drag-and-Drop Image 'upload.'
     $("div#image-selection").dropzone({ url: "/file/post" });

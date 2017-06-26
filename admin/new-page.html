@@ -6,11 +6,11 @@ title: "New Comic"
 <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-            <h5 style="display:inline">Admin><a href="{{ site.baseurl }}/admin/manage-comics.html">Manage Comics</a>><a href="{{ site.baseurl }}/admin/manage-pages.html#">Manage Pages</a>: </h5><h5 class="comic-title" style="display:inline"></h5><h5 style="display:inline">>Add Page</h5>
+            <h5 style="display:inline">Admin></h5><a href="{{ site.baseurl }}/admin/manage-comics.html"><h5 style="display:inline;">Manage Comics></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-pages.html#"><h5 style="display:inline;">Manage Pages:</h5> <h5 class="comic-title" style="display:inline"></h5></a><a class="page-variable" href="{{ site.baseurl }}/admin/new-page.html#"><h5 style="display:inline;">>New Page</h5></a>
             <h2>New Page</h2>
                 <form class="form-horizontal">
                     <div>
-                        <label for="mail">Main Image:</label>
+                        <label for="image">Main Image:</label>
                         <div class="dropzone" id="image-selection"></div>
                     </div>
                     <div>
@@ -30,7 +30,8 @@ title: "New Comic"
                         </div>
                     </div>
                     <div style="margin-bottom: 25px;">
-                        <input type="text" id="category" name="Categories" placeholder="Enter categories separated by spaces here.">
+                        <label for="tags">Categories/Tags</label>
+                        <input style="margin-top: -22px;" type="text" id="category" name="Categories" placeholder="Enter categories/tags separated by spaces here.">
                     </div>
                 <button class="btn btn-primary" type="submit"><span class="fa fa fa-floppy-o"></span> Save</button>
                 <button class="btn btn-primary"><span class="fa fa-times"></span> Cancel</button>
