@@ -6,7 +6,7 @@ title: Edit Page
 <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-            <h5 style="display:inline">Admin></h5><a href="{{ site.baseurl }}/admin/manage-comics.html"><h5 style="display:inline;">Manage Comics></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-pages.html#"><h5 style="display:inline;">Manage Pages:</h5> <h5 class="comic-title" style="display:inline"></h5></a><a class="page-variable" href="{{ site.baseurl }}/admin/edit-page.html#"><h5 style="display:inline;">>Edit Page</h5></a>
+            <h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-comics.html"><h5 style="display:inline;">Manage Comics></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-pages.html#"><h5 style="display:inline;">Manage Pages:</h5> <h5 class="comic-title" style="display:inline"></h5></a><a class="page-variable" href="{{ site.baseurl }}/admin/edit-page.html#"><h5 style="display:inline;">>Edit Page</h5></a>
             <h2>Edit Page</h2>
                 {% assign comics = site.comics | sort:'title' %}
                 {% for comic in comics %}

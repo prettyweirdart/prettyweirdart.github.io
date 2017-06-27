@@ -1,38 +1,37 @@
 ---
 layout: admin
-title: "Manage Pages"
+title: "Manage Posts"
 ---
 
 <div class="row">
 	<div class="col-lg-10 col-lg-offset-1">
-			<h5 style="display:inline">Admin></h5><a href="{{ site.baseurl }}/admin/manage-comics.html"><h5 style="display:inline;">Manage Comics></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-pages.html#"><h5 style="display:inline;">Manage Pages:</h5> <h5 class="comic-title" style="display:inline"></h5></a>
+			<h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-posts.html"><h5 style="display:inline;">Manage Posts></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-posts.html#"><h5 style="display:inline;">Manage Posts:</h5> <h5 class="comic-title" style="display:inline"></h5></a>
 			<div class="post">
-			<h2>Manage Pages</h2>
+			<h2>Manage Posts</h2>
 			<table class="table table-striped table-hover">
 				<h4 style="display:inline;" class="comic-title"></h4><a class="btn  hvr-grow" data-toggle="modal" data-target="#edit-modal" tooltip="Edit Title" style="margin-bottom: 8px;" href="#"><span class="fa fa-pencil"></span></a>
 				<div class="pull-right">
-					 <a class="btn btn-sm btn-primary comic-variable" style="margin-bottom: 8px;" href="{{ site.baseurl }}/admin/new-page.html#"><span class="fa fa-file"></span> Add New Page</a>
+					 <a class="btn btn-sm btn-primary comic-variable" style="margin-bottom: 8px;" href="{{ site.baseurl }}/admin/new-post.html"><span class="fa fa-file"></span> Add New Post</a>
 					 <a class="btn btn-sm btn-primary comic-variable" data-toggle="modal" data-target="#delete-modal" style="margin-right: 8px; margin-bottom: 8px;" href="#"><span class="fa fa-trash"></span>  Delete Comic</a>
 				</div>
 				<tbody>
-					{% assign comics = site.comics | sort:'title' %}
-					{% for comic in comics %}
-						<tr class="{{ comic.title | replace: ' ', '-' }} do-not-display">
+					{% assign posts = site.posts | sort:'title' %}
+					{% for post in posts %}
+						<tr class="{{ post.title | replace: ' ', '-' }} do-not-display">
 							<td>
-								<div class="col-lg-3">
-									<a href="{{ site.baseurl }}/admin/edit-page.html#{{ comic.title }}"><img src="{{ comic.image_path }}" class="img-thumbnail" style="max-width: 180px; margin-top: 8px; margin-bottom: 8px;" /></a>
+								<div class="col-lg-5">
+									<a href="{{ site.baseurl }}/admin/edit-post.html#{{ post.title }}"><h4> {{ post.title }}</h4></a>
 								</div>
-								<div class="col-lg-6">
-									<h5 style="display: inline;">Page {{ comic.page_num }}</h5>
-									<h5>Description:</h5>
-									<span class="metadata">{{ comic.excerpt }}</span>
-									<h5>Categories:</h5>
-									<span class="metadata">{{ comic.categories }}</span>
+								<div class="col-lg-4">
+									<h5 style="display: inline;">Categories:</h5>
+									<span class="metadata" style="display: inline;">{{ post.categories }}</span>
+									<h5>Excerpt:</h5>
+									<span class="metadata">{{ post.content | truncatewords: 10 }}</span>
 								</div>
 								<div class="col-lg-3">
 									<div class="pull-right"> 
 										<a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#delete-modal" href="#{{ comic.title }}"><span class="fa fa-trash"></span> Delete</a>
-										<a href="{{ site.baseurl }}/admin/edit-page.html#{{ comic.title }} Page {{ comic.page_num }}" class="btn btn-primary btn-xs"><span class="fa fa-pencil"></span> Edit</a>
+										<a href="{{ site.baseurl }}/admin/edit-post.html#{{ post.title }}" class="btn btn-primary btn-xs"><span class="fa fa-pencil"></span> Edit</a>
 									</div>
 								</div>
 							</td>

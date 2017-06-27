@@ -1,51 +1,41 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Trumbowyg by Alex-D</title>
-        <link href="../css/theme.min.css" rel="stylesheet">
-        <link href="../css/style.css" rel="stylesheet">
-        <link href="../css/animate.css" rel="stylesheet">
-        <link href="../css/hover.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="../plugins/trumbo/dist/ui/trumbowyg.css">
-    </head>
-    <body>
-        <div class="white">
-        <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                    <h3> New Comic Page </h3>
-                        <form class="form-horizontal">
-                            <div>
-                                <label for="title">Comic Title</label>
-                                <input type="text" id="title" name="Title">
-                            </div>
-                            <div>
-                                <label for="mail">Email</label>
-                                <input type="email" id="mail" name="Email Address">
-                            </div>
-                            <div>
-                                <label for="phone">Phone</label>
-                                <input type="text" id="phone" name="Phone Number">
-                            </div>
-                        </form>
-                    
-                        <h4>Add Some Content</h4>
-                        <div class="main">
+---
+layout: admin
+title: "New Post"
+---
+
+<div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+            <h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-posts.html"><h5 style="display:inline;">Manage Posts></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-posts.html#"><h5 style="display:inline;">Manage Posts:</h5> <h5 class="comic-title" style="display:inline"></h5></a><a class="page-variable" href="{{ site.baseurl }}/admin/new-post.html#"><h5 style="display:inline;">>New Post</h5></a>
+            <h2>New Post</h2>
+                <form class="form-horizontal">
+                    <div>
+                        <label for="image">Featured Image: (This will appear above the post in the blog feed.)</label>
+                        <div class="dropzone" id="image-selection"></div>
+                    </div>
+                    <div>
+                        <label for="description" style="margin-top:15px;">Description:</label>
+                        <div class="main" style="margin-top:-18px;">
                             <div id="editor">
+                                <h4><strong> Create a new post </strong></h4>
+                                <p>
+                                    • Enter any description to appear below the page. <br /> 
+                                    • Any images added will automatically be referenced from the page's "images" folder. <br />
+                                    • Format this text using the editor here, or click the '<>' button to edit HTML directly.<br />
+                                    • Any and all html &amp; basic javascript will execute on page load.
+                                </p>
+                                <p><strong>Delete this text or it will appear in your new post.</strong></p>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div style="margin-bottom: 25px;">
+                        <label for="tags">Categories/Tags:</label>
+                        <input style="margin-top: -22px;" type="text" id="category" name="Categories" placeholder="Enter categories/tags separated by spaces here.">
+                    </div>
+                    <button class="btn btn-primary"><span class="fa fa-times"></span> Cancel</button>
+                    <button class="btn btn-primary" type="submit"><span class="fa fa fa-floppy-o"></span> Save</button>
+                </form>
             </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="../plugins/trumbo/dist/trumbowyg.js"></script>
-        <script>
-            /** Default editor configuration **/
-            $.trumbowyg.svgPath = '../plugins/trumbo/dist/ui/icons.svg';
-            $('#editor').trumbowyg();
-        </script>
-    </body>
-</html>
+    </div>
+</div>

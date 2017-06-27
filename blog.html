@@ -4,9 +4,13 @@ title: "Blog"
 ---
 <div class="row">
 	<div class="col-lg-8 col-lg-offset-2">
-		<h2>A Pretty Weird Blog</h2>
+		<h2 style="margin-bottom: 0px;">A Pretty Weird Blog</h2>
+		<p style="margin-top: 10px; font-weight: 800; font-style: italic; color: #9533a9; line-height: 1.5;">News, updates, and musings–the latest &amp; greatest from Pretty Weird Art</p>
 		{% for post in site.posts %}
 			<div class="post">
+				{% if post.image_path != nil %}
+					<div class="post-header-image" style="background: no-repeat top center/cover url('{{ post.image_path }}');"></div>
+				{% endif %}
 				<span class="metadata"><a href="">{{ post.date | date_to_long_string }}</a> :: Posted in: 
 					<ul>
 					{% for category in post.categories %}

@@ -1,13 +1,17 @@
 ---
 layout: admin
-title: Edit Page
+title: "Edit Post"
 ---
 
 <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-            <h5 style="display:inline">Admin><a href="{{ site.baseurl }}/admin/manage-comics.html">Manage Comics</a>><a href="{{ site.baseurl }}/admin/manage-pages.html#">Manage Pages</a>: </h5><h5 class="comic-title" style="display:inline"></h5><h5 style="display:inline">>Edit Page: {{ comic.page_num }}</h5>
-            <h2>Edit Page</h2>
+            <h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-comics.html"><h5 style="display:inline;">Manage Posts></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-posts.html#"><h5 style="display:inline;">Manage Posts:</h5> <h5 class="comic-title" style="display:inline"></h5></a><a class="page-variable" href="{{ site.baseurl }}/admin/edit-post.html#"><h5 style="display:inline;">>Edit Post</h5></a>
+            <h2>Edit Post</h2>
+                {% assign comics = site.comics | sort:'title' %}
+                {% for comic in comics %}
+                {% endfor %}
+
                 <form class="form-horizontal">
                     <div>
                         <label for="mail">Main Image:</label>
@@ -21,11 +25,12 @@ title: Edit Page
                         </div>
                     </div>
                     <div style="margin-bottom: 25px;">
+                        <label for="categories">Categories/Tags:</label>
                         <input type="text" id="category" name="Categories" placeholder="Enter categories separated by spaces here.">
                     </div>
 
-                <button class="btn btn-primary" type="submit"><span class="fa fa fa-floppy-o"></span> Save</button>
                 <button class="btn btn-primary"><span class="fa fa-times"></span> Cancel</button>
+                <button class="btn btn-primary" type="submit"><span class="fa fa fa-floppy-o"></span> Save</button>
                 </form>
             </div>
         </div>

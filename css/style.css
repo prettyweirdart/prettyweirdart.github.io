@@ -93,7 +93,7 @@ h1,h2 {
 	position: relative;
 	margin-top: -34px;
 	background: #9533a9;
-	min-height: 600px;
+	height: 725px;
 	margin-bottom: 30px;
 	-webkit-box-shadow: inset 0px 0px 211px 0px rgba(0,146,214,.4);
 	-moz-box-shadow: inset 0px 0px 211px 0px rgba(0,146,214,.4);
@@ -133,7 +133,9 @@ h1,h2 {
 
 .latest-page {
 	background: rgba(26, 39, 51, 0.45);
-	position: relative;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
 	padding-top: 15px;
 	padding-bottom: 0.5px !important;
 	text-transform: uppercase;
@@ -160,6 +162,26 @@ h1,h2 {
 	margin-bottom: 50px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.post-header-image {
+	display: block;
+	position: relative;
+	height: 400px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.post-header-image::after {
+	content:" ";
+	opacity: 0.5;
+	background: #9533a9;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;     
 }
 
 .more {
@@ -280,6 +302,11 @@ textarea {
 }
 
 label {
+}
+
+input, textarea, button, label, option, select, .button, .hndle {
+	border-radius: 0 !important;
+	webkit-appearance: none;
 }
 
 .btn {
