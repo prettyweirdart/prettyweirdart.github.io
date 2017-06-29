@@ -3,11 +3,12 @@ layout: default
 title: "Gallery"
 ---
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-lg-12">
 		<h2>Gallery</h2>
-		<form style="margin-top: 0px;" action="/search.html" method="get">
-			<div>
-				<input type="text" id="search-box" name="query" placeholder="Search Artworks...">
+		<form style="margin-top: 40px;" action="search.html" method="get">
+			<div style="margin-top: -25px;">
+				<label for="search">Search This Site:</label>
+				<input class="search" type="text" id="search-box" name="query" placeholder="Search...">
 				<span class="fa fa-search" style="float: right; margin-top: -27px;"></span>
 			</div>
 		</form>

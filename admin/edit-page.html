@@ -1,6 +1,6 @@
 ---
 layout: admin
-title: Edit Page
+title: "Edit Page"
 ---
 
 <div class="container">
@@ -36,3 +36,21 @@ title: Edit Page
         </div>
     </div>
 </div>
+
+<script>
+  window.store = {
+    {% for post in site.posts %}
+      "{{ post.url | slugify }}": {
+        "title": "{{ post.title | xml_escape }}",
+        "author": "{{ post.author | xml_escape }}",
+        "category": "{{ post.category | xml_escape }}",
+        "content": {{ post.content | strip_html | strip_newlines | jsonify }},
+        "url": "{{ post.url | xml_escape }}",
+        "image_path": "{{ post.image_path | xml_escape }}",
+        "page_num": "{{ post.page_num | xml_escape }}"
+      },
+    {% endfor %}
+    };
+</script>
+
+<script src="{{ site.baseurl }}/js/lunr.min.js"></script>
