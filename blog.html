@@ -6,10 +6,18 @@ title: "Blog"
 	<div class="col-lg-8 col-lg-offset-2">
 		<h2 style="margin-bottom: 0px;">A Pretty Weird Blog</h2>
 		<p style="margin-top: 10px; font-weight: 800; font-style: italic; color: #9533a9; line-height: 1.5;">News, updates, and musings–the latest &amp; greatest from Pretty Weird Art</p>
+		<form style="margin-top: 40px;" action="/search.html" method="get">
+			<div style="margin-top: -25px;">
+				<input class="search" style="max-width: 300px;" type="text" id="search-box" name="query" placeholder="Search...">
+				<span class="fa fa-search" style="float: right; margin-top: -27px;"></span>
+			</div>
+		</form>
 		{% for post in site.posts %}
 			<div class="post">
 				{% if post.image_path != nil %}
-					<div class="post-header-image" style="background: no-repeat top center/cover url('{{ post.image_path }}');"></div>
+					<div class="post-header-image-wrapper">
+						<div class="post-header-image" style="background: no-repeat top center/cover url('{{ post.image_path }}');"></div>
+					</div>
 				{% endif %}
 				<span class="metadata"><a href="">{{ post.date | date_to_long_string }}</a> :: Posted in: 
 					<ul>
@@ -29,13 +37,6 @@ title: "Blog"
 		{% endfor %}
 	</div>
 	<div class="col-lg-2">
-		<form style="margin-top: 40px;" action="/search.html" method="get">
-			<div>
-				<input type="text" id="search-box" name="query" placeholder="Search...">
-				<span class="fa fa-search" style="float: right; margin-top: -27px;"></span>
-			</div>
-		</form>
-
 		<h4 style="margin-bottom: 0; text-align: right; margin-top: 30px;">Categories</h4>
 		<ul class="cat-list">
 			{% for category in site.categories %}
