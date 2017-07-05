@@ -15,31 +15,65 @@
                 <div class="col-lg-12">
                     <div class="center">
                         <a href="{{ page.image_path }}" ><img style="max-width: 100%;" src="{{ page.image_path }}" /></a><br />
+                        
+                        <!-- Pagination -->
                         <ul class="pagination">
                             {% assign comics = site.comics | sort:'title' %}
-                            {% assign pagenum = 1 %}
-                            {% assign prev_page = 0 %}
-                            {% assign prev_page_url = '' %}
-                            {% assign next_page_url = '' %}
+                            
+                            <!-- Create constants. -->
+                            {% assign page-count = 0 %}
                             {% for comic in comics %}
                                 {% if comic.title == page.title %}
-                                    {% if prev-page == 1 %} 
-                                        <li class="{% if pagenum == 1 %} disabled {% endif %}"><a href="{% if pagenum != 1 %}{{ prev_page_url }}{% else %} # {% endif %}">«</a></li> 
-                                        {% assign prev-page = 0 %}
+                                    {% assign page-count = page-count | plus: 1 %}
+                                {% endif %}
+                            {% endfor %}
+                            {% assign next-page-num = page.page_num | plus: 1 %}
+                            {% assign prev-page = page.page_num | minus: 1 %}
+
+                            <!-- Find the previous page link. -->
+                            {% for previous-page in comics %}
+                                {% if previous-page.title == page.title %}
+                                    <!-- Disable if Page 1. -->
+                                    {% if page.page_num == 1 %}
+                                        {% if previous-page.page_num == 1 %}
+                                            <li class="disabled"><a href="#">«</a></li>
+                                        {% endif %}
+                                    {% else %}
+                                        <!-- Generate only one link for the previous page. -->
+                                        {% if previous-page.page_num == prev-page %}
+                                            <li class=""><a href="{{ previous-page.url }}">«</a></li>
+                                        {% endif %}
                                     {% endif %}
-                                    <li class="{% if comic.url == page.url %} active {% assign prev-page = 1 %} {% endif %}"><a href="{{ comic.url }}">{{ comic.page_num }}</a></li>
-                                    {% assign pagenum = pagenum | plus: 1 %}
-                                    {% assign prev_page_url = comic.url %}
-                                    {% if comic.url == page.url %}
-                                        {% assign next_page_url = pagenum | plus: 1 %}
-                                    {% endif %}
-                                    {% if next_page_url == pagenum %}
-                                        {% assign next_page_url = comic.url %}
+                                {% endif %}
+                            {% endfor %} 
+
+                            {% for comic in comics %}
+                                {% if comic.title == page.title %}
+                                    <!-- Create disabled placeholder if is same page. -->
+                                    {% if page.page_num == comic.page_num %}
+                                        <li class="disabled"><a href="{{ comic.url }}">{{ comic.page_num }}</a></li>
+                                    {% else %}
+                                        <li><a href="{{ comic.url }}">{{ comic.page_num }}</a></li>
                                     {% endif %}
                                 {% endif %}
                             {% endfor %}
-                            {% assign pagenum = pagenum | plus: 1 %}
-                            <li class="{% if next_page_url == pagenum %} disabled {% endif %}"><a href="{% if next_page_url != pagenum %}{{ next_page_url }}{% endif %}">»</a></li>
+                            
+                            <!-- Generate Next Page link. -->
+                            {% for next-page in comics %}
+                                {% if next-page.title == page.title %}
+                                    <!-- Disable if last page. -->
+                                    {% if page.page_num == page-count %}
+                                        {% if next-page.page_num == page.page_num %}
+                                            <li class="disabled"><a href="#">»</a></li>
+                                        {% endif %}
+                                    {% else %}
+                                        <!-- Generate only one link for the previous page. -->
+                                        {% if next-page.page_num == next-page-num %}
+                                            <li class=""><a href="{{ next-page.url }}">»</a></li>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -62,14 +96,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
     $(function () {
-        var $navbar = $(".navbar-default");
+        var $navbar = $(".navbar-inverse");
         $navbar.removeClass('navbar-fixed-top');
-
-      $(document).scroll(function () {
-        var $nav = $(".inverse");
-        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+        $navbar.css('margin-top', '0');      
       });
     });
+
     $('#{{ page.title }}').addClass('active'); 
 </script>
 

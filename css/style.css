@@ -29,9 +29,17 @@ body {
 }
 
 nav {
-	-webkit-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.2);
-	box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.2);
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9533a9+0,900bc4+99&0.6+0,0.6+100 */
+	background: -moz-radial-gradient(center, ellipse cover, rgba(149,51,169,0.6) 0%, rgba(144,11,196,0.6) 99%, rgba(144,11,196,0.6) 100%); /* FF3.6-15 */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(149,51,169,0.6)), color-stop(99%,rgba(144,11,196,0.6)), color-stop(100%,rgba(144,11,196,0.6))); /* Chrome4-9,Safari4-5 */
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(149,51,169,0.6) 0%,rgba(144,11,196,0.6) 99%,rgba(144,11,196,0.6) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: -o-radial-gradient(center, ellipse cover, rgba(149,51,169,0.6) 0%,rgba(144,11,196,0.6) 99%,rgba(144,11,196,0.6) 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover, rgba(149,51,169,0.6) 0%,rgba(144,11,196,0.6) 99%,rgba(144,11,196,0.6) 100%); /* IE10 preview */
+	background: radial-gradient(ellipse at center, rgba(149,51,169,0.6) 0%,rgba(144,11,196,0.6) 99%,rgba(144,11,196,0.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999533a9', endColorstr='#99900bc4',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	-webkit-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.1);
 	z-index: 999;
 }
 
@@ -47,6 +55,7 @@ nav {
 
 .navbar-inverse {
 	border: none !important;
+	background: rgba()
 }
 .navbar-collapse {
 	border: none !important;
@@ -89,23 +98,24 @@ h1,h2 {
 	content: "";
 }
 
+.metadata a {
+	color: #ed145b;
+	font-weight: 600;
+}
+
 .main-page {
 	position: relative;
 	margin-top: -34px;
-	background: #9533a9;
+	background: #ed145b;
 	height: 725px;
 	margin-bottom: 30px;
-	-webkit-box-shadow: inset 0px 0px 211px 0px rgba(0,146,214,.4);
-	-moz-box-shadow: inset 0px 0px 211px 0px rgba(0,146,214,.4);
-	box-shadow: inset 0px 0px 211px 0px rgba(0,146,214,.4);
+	-webkit-box-shadow: inset 0px 0px 511px 0px rgba(0,146,214,.7);
+	-moz-box-shadow: inset 0px 0px 511px 0px rgba(0,146,214,.7);
+	box-shadow: inset 0px 0px 511px 0px rgba(0,146,214,.7);
 } 
 
 .main-bg {
 	position:absolute;
-	top:50%;
-	left:50%;
-	transform: translate3d(-50%,-50%,0);
-	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -113,27 +123,16 @@ h1,h2 {
 	overflow: hidden;
 }
 
-.main-bg img {
-	min-height: 100%;
-	max-width: 100%;
-	opacity: 0.2;
-}
-
-.main-bg:hover {
-	/* z-index: 999 !important; */
-}
-
-.main-bg img:hover {
-	opacity: 1.0 !important;
+.main-img {
+	opacity: 0.5;
 }
 
 .logo {
-	filter: drop-shadow(0px 0px 20px rgba(25,25,25,0.4));
+	filter: drop-shadow(0px 0px 20px rgba(25,25,25,0.8));
 }
 
 .latest-page {
-	background: rgba(26, 39, 51, 0.45);
-	position: absolute;
+	background: rgba(26, 39, 51, 0.8);
 	bottom: 0px;
 	width: 100%;
 	padding-top: 15px;
@@ -155,6 +154,9 @@ h1,h2 {
 	overflow-x: wrap;
 }
 
+.post a {
+	font-weight: 600;
+}
 .post img {
 	padding: 8px;
 	max-width: 65%;
@@ -197,42 +199,42 @@ h1,h2 {
 }
 
 .white {
-	background: #fff;
+	background: #fdfdfd;
 	padding: 30px 0 60px 0;
 }
 
 footer {
 	font-family: "Avenir Next";
-	font-size: 80%;
-	padding-top: 40px;
+	font-size: 81%;
+	padding-top: 60px;
 	padding-bottom: 30px;
 	background: #252525;
 	color: #999;
 }
 
 footer a {
-	font-weight: 600;
-	color: #999;
+	color: #a0a0a0;
 }
 
-footer h4 {
-	color: #999;
+footer h5 {
+	color: #777;
 }
 
 footer a:hover {
 	color: #eee;
+	text-decoration: none;
 }
 
 footer ul {
-	border: 1px solid #333;
-	border-radius: 2px;
-	background: #222;
 	padding: 3px 20px 20px 20px;
 }
 
 footer li {
+	padding-top: 6px;
+	padding-bottom: 6px;
 	list-style: none;
-	border-top: 1px solid #333;
+	border-top: 1px solid #393939;
+	line-height: 1.25;
 }
 
 footer li:last-child {
@@ -268,7 +270,7 @@ div.header-icons {
 	margin-top: -42px;
 	margin-bottom: -50px;
 	line-height:.5;
-	text-shadow: 1px 1px 1px rgba(0,0,0, 0.05);
+	text-shadow: 0px 1px 2px rgba(0,0,0, 0.2);
 }
 
 .header-icons a {
@@ -328,6 +330,7 @@ input, textarea, button, label, option, select, .button, .hndle {
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
+
 .grid-item {
 	width: 33%;
 	padding: 5px;
@@ -368,6 +371,7 @@ input, textarea, button, label, option, select, .button, .hndle {
 .nav>li a {
 	font-weight: 700;
 	letter-spacing: -.5px;
+	text-shadow: 0 1px 2px rgba(0,0,0, 0.2);
 }
 
 @media (min-width: 768px) and (max-width: 1000px) {
@@ -461,7 +465,7 @@ input, textarea, button, label, option, select, .button, .hndle {
 		padding-top: 30px;
 		padding-bottom: 45px;
 		margin-left: 35.5%;
-		width: 28%;
+		width: 23%;
 	}
 
 	.toggled {

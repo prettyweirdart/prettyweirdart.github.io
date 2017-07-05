@@ -1,27 +1,30 @@
 <footer>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4">
+			<div class="col-lg-3">
+				
+			</div>
+			<div class="col-lg-3">
 				<ul>
-					<h4>Recent Posts</h4>
+					<h5>Recent Posts</h5>
 					{% assign posts = site.posts | limit: 6 %}
 					{% for post in posts %}
 						<li><a href="{{ post.url }}">{{ post.date | date_to_long_string }}: {{ post.title }}</a></li>
 					{% endfor %}	
 				</ul>
 			</div>
-			<div class="col-lg-4">
+			<div class="col-lg-3">
 				<ul>
-					<h4>Recent Comics Updates</h4>
+					<h5>Recent Comics Updates</h5>
 					{% assign sorted = ((site.comics | sort: 'date') | reverse) | limit: 6 %}
 					{% for comic in sorted %}
 						<li><a href="{{ comic.url }}">{{ comic.title }}</a></li>
 					{% endfor %}
 				</ul>
 			</div>
-			<div class="col-lg-4">
+			<div class="col-lg-3">
 				<ul>
-				<h4>Upcoming Events</h4>
+				<h5>Upcoming Events</h5>
 					{% assign conventions = site.conventions | limit: 6 %}
 					{% for convention in conventions %}
 						<li><a href="{{ convention.url }}">{{ convention.date | date_to_long_string }}: {{ convention.title }}</a></li>

@@ -1,15 +1,14 @@
 </div>
 
 <div class="main-page">
-	<div class="main-bg animated fadeInLeft">
+	<div class="main-bg">
 		{% for comic in site.comics limit:1 %}
-			<div class="" style="top:-200px; height:1500px; width: 900px; background: url({{ comic.image_path }});"></div>
+			<div class="main-img" style="width: 100%; height: 100%; background: url({{ comic.image_path }});"></div>
 		{% endfor %}
-	</div>	
-	<div class="logo"><h1 class="bounceInDown in tlt large">Pretty Weird Art</h1><img src="../images/prettyweirdart_logomark.svg" /></div>
+	</div>
+	<div class="logo"><img class="animated zoomIn" src="{{ site.baseurl }}/images/pwa-main-page-logo.svg" /><div class="center"><h1 class="tlt animated zoomIn" style="font-size: 70pt; color: #fff; font-family: 'Creepster'; /* -webkit-text-stroke-width: 5px; -webkit-text-stroke-color: black; */">Pretty Weird Art</h1></div></div>
 	<div class="latest-page">
 		<p>Latest Comic: Check out the latest page from DeMarcus Williams!</p>
-	</div>
+	</div>	
 </div>
-
 <div class="container">
