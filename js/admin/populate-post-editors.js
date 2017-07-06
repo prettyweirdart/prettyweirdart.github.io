@@ -8,9 +8,13 @@
 
     var postTitle = item.title;
     $('#title').val(postTitle);
+    $('#title').css('placeholder', '');
 
     var categories = item.category;
     $('#category').val(categories);
+
+    var imagePath = item.image_path;
+    $('.output').html('<img src="' + imagePath + '" /> <br />Local URL: ' + item.image_path);
   }
 })();
 

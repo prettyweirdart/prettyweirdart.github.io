@@ -322,13 +322,30 @@ input, textarea, button, label, option, select, .button, .hndle {
 }
 
 .dropzone {
+	min-height: 60px;
 	margin-top: -3px;
 	text-align: center;
 	color: #bbb;
 	background: #efefef;
-	border: 1px dashed #eee;
+	border: 1.5px dashed #eee;
 	padding-top: 20px;
 	padding-bottom: 20px;
+	cursor: copy;
+}
+
+.dropzone.dragover {
+	background: #ddd;
+	cursor: copy;
+}
+
+.output {
+	line-height: 1.5;
+	font-size: 90%;
+}
+
+.output img {
+	margin-bottom: 16px;
+	max-height: 200px;
 }
 
 .grid-item {
