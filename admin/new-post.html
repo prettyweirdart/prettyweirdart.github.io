@@ -9,6 +9,10 @@ title: "New Post"
             <h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-posts.html"><h5 style="display:inline;">Manage Posts></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-posts.html#"><h5 style="display:inline;">Manage Posts:</h5> <h5 class="comic-title" style="display:inline"></h5></a><a class="page-variable" href="{{ site.baseurl }}/admin/new-post.html#"><h5 style="display:inline;">>New Post</h5></a>
             <h2>New Post</h2>
                 <form class="form-horizontal">
+                    <div style="margin-bottom: 8px;">
+                        <label for="tags">Post Title:</label>
+                        <input style="margin-top: -22px;" type="text" id="title" name="Post Title" placeholder="Enter a title for the post here.">
+                    </div>
                     <div>
                         <label for="image">Featured Image: (This will appear above the post in the blog feed.)</label>
                         <div class="dropzone" id="image-selection"></div>

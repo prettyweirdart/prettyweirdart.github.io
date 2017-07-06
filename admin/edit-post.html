@@ -6,13 +6,16 @@ title: "Edit Post"
 <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-            <h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-comics.html"><h5 style="display:inline;">Manage Posts></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-posts.html#"><h5 style="display:inline;">Manage Posts:</h5> <h5 class="comic-title" style="display:inline"></h5></a><a class="page-variable" href="{{ site.baseurl }}/admin/edit-post.html#"><h5 style="display:inline;">>Edit Post</h5></a>
+            <h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-posts.html"><h5 style="display:inline;">Manage Posts></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-posts.html#"><h5 style="display:inline;">Manage Posts:</h5> <h5 class="comic-title" style="display:inline"></h5></a><a class="page-variable" href="{{ site.baseurl }}/admin/edit-post.html#"><h5 style="display:inline;">>Edit Post</h5></a>
             <h2>Edit Post</h2>
-                {% assign comics = site.comics | sort:'title' %}
-                {% for comic in comics %}
+                {% for post in site.posts %}
                 {% endfor %}
 
                 <form class="form-horizontal">
+                    <div style="margin-bottom: 8px;">
+                        <label for="title">Post Title:</label>
+                        <input style="margin-top: -22px;" type="text" id="title" name="Post Title" placeholder="Enter a title for the post here.">
+                    </div>
                     <div>
                         <label for="mail">Main Image:</label>
                         <div class="dropzone" id="image-selection"></div>
@@ -36,5 +39,20 @@ title: "Edit Post"
         </div>
     </div>
 </div>
+<div id="page-content"></div>
 
+<script>
+window.store = {
+    {% for post in site.posts %}
+      "{{ post.url | slugify }}": {
+        "title": "{{ post.title | xml_escape }}",
+        "category": "{{ post.category | xml_escape }}",
+        "content": {{ post.content | jsonify }},
+        "url": "{{ post.url | xml_escape }}"
+      },
+    {% endfor %}
+};
+</script>
+<script src="{{ site.baseurl }}/js/lunr.min.js"></script>
+<script src="{{ site.baseurl }}/js/admin/edit-post.js"></script>
 

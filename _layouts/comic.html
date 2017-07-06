@@ -1,7 +1,9 @@
 {% include head.html %}
 <style>
+    body {
+        padding-top: 0;
+    }
     .navbar {
-        border: none;
         margin-bottom: 0;
     }
 </style>
@@ -98,9 +100,7 @@
     $(function () {
         var $navbar = $(".navbar-inverse");
         $navbar.removeClass('navbar-fixed-top');
-        $navbar.css('margin-top', '0');      
       });
-    });
 
     $('#{{ page.title }}').addClass('active'); 
 </script>

@@ -25,9 +25,13 @@ title: "Manage Pages"
 								<div class="col-lg-6">
 									<h5 style="display: inline;">Page {{ comic.page_num }}</h5>
 									<h5>Description:</h5>
-									<span class="metadata">{{ comic.excerpt }}</span>
+									<div style="margin-top: -8px; line-height: 1.25;">
+										<span class="metadata" style="display: inline;">{{ comic.excerpt }}</span>
+									</div>
 									<h5>Categories:</h5>
-									<span class="metadata">{{ comic.categories }}</span>
+									<div style="margin-top: -8px; line-height: 1.25;">
+										<span class="metadata" style="display: inline;">{{ comic.categories }}</span>
+									</div>
 								</div>
 								<div class="col-lg-3">
 									<div class="pull-right"> 
@@ -79,9 +83,9 @@ title: "Manage Pages"
         </button>
       </div>
       <div class="modal-body">
-        <p style="display:inline;">Are you sure you want to delete</p>
-        <p class="comic-title" style="display: inline;"></p>
-        <p style="display:inline">?</p>
+	      <form>
+	      	<input type="text" placeholder="">
+	      </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><span class="fa fa-times"></span> Cancel</button>
