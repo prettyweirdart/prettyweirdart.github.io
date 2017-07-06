@@ -4,13 +4,12 @@ title: "Manage Posts"
 ---
 <div class="row">
 	<div class="col-lg-10 col-lg-offset-1">
-			<h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-posts.html"><h5 style="display:inline;">Manage Posts></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-posts.html#"><h5 style="display:inline;">Manage Posts:</h5> <h5 class="comic-title" style="display:inline"></h5></a>
+			<h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-posts.html"><h5 style="display:inline;">Manage Posts></h5><h5 class="comic-title" style="display:inline"></h5></a>
 			<div class="post">
 			<h2>Manage Posts</h2>
 			<table class="table table-striped table-hover">
 				<div class="pull-right">
 					 <a class="btn btn-sm btn-primary comic-variable" style="margin-bottom: 8px;" href="{{ site.baseurl }}/admin/new-post.html"><span class="fa fa-file"></span> Add New Post</a>
-					 <a class="btn btn-sm btn-primary comic-variable" data-toggle="modal" data-target="#delete-modal" style="margin-right: 8px; margin-bottom: 8px;" href="#"><span class="fa fa-trash"></span>  Delete Comic</a>
 				</div>
 				<tbody>
 					{% assign posts = site.posts | sort:'title' %}

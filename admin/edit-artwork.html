@@ -1,21 +1,18 @@
 ---
 layout: admin
-title: "Edit Post"
+title: "Edit Artwork"
 ---
 
 <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-            <h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-posts.html"><h5 style="display:inline;">Manage Posts></h5><a class="page-variable" href="{{ site.baseurl }}/admin/edit-post.html#"><h5 style="display:inline;">Edit Post: </h5><h5 class="comic-title" style="display:inline"></h5></a>
-            <h2>Edit Post</h2>
-                {% for post in site.posts %}
+            <h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-comics.html"><h5 style="display:inline;">Manage Comics></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-pages.html#"><h5 style="display:inline;">Manage Pages:</h5> <h5 class="comic-title" style="display:inline"></h5></a><a class="page-variable" href="{{ site.baseurl }}/admin/edit-page.html#"><h5 style="display:inline;">>Edit Page</h5></a>
+            <h2>Edit Page</h2>
+                {% assign comics = site.comics | sort:'title' %}
+                {% for comic in comics %}
                 {% endfor %}
 
                 <form class="form-horizontal">
-                    <div style="margin-bottom: 8px;">
-                        <label for="title">Post Title:</label>
-                        <input style="margin-top: -22px;" type="text" id="title" name="Post Title" placeholder="Enter a title for the post here.">
-                    </div>
                     <div>
                         <label for="mail">Main Image:</label>
                         <div class="dropzone" id="image-selection"><div class="output"></div></div>
@@ -29,7 +26,7 @@ title: "Edit Post"
                     </div>
                     <div style="margin-bottom: 25px;">
                         <label for="categories">Categories/Tags:</label>
-                        <input type="text" id="category" name="Categories" placeholder="Enter categories separated by commas.">
+                        <input type="text" id="category" name="Categories" placeholder="Enter categories/tags separated by commas.">
                     </div>
 
                 <button class="btn btn-primary"><span class="fa fa-times"></span> Cancel</button>
@@ -39,23 +36,24 @@ title: "Edit Post"
         </div>
     </div>
 </div>
-<div id="page-content"></div>
 
 <script>
-window.store = {
-    {% for post in site.posts %}
-      "{{ post.url | slugify }}": {
-        "title": "{{ post.title | xml_escape }}",
-        "categories": {{ post.categories | jsonify }},
-        "content": {{ post.content | jsonify }},
-        "image_path": "{{ post.image_path | xml_escape }}",
-        "url": "{{ post.url | xml_escape }}"
-      },
-    {% endfor %}
-};
+    window.store = {
+        {% for comic in site.comics %}
+          "{{ comic.url | slugify }}": {
+            "title": "{{ comic.title | xml_escape }}",
+            "author": "{{ comic.author | xml_escape }}",
+            "categories": {{ comic.categories | jsonify }},
+            "url": "{{ comic.url | xml_escape }}",
+            "image_path": "{{ comic.image_path | xml_escape }}",
+            "page_num": "{{ comic.page_num | xml_escape }}",
+            "content": {{ comic.content | jsonify }}
+          },
+        {% endfor %}
+    };
 </script>
+
 <script src="{{ site.baseurl }}/js/lunr.min.js"></script>
-<script src="{{ site.baseurl }}/js/admin/edit-post.js"></script>
+<script src="{{ site.baseurl }}/js/admin/edit-page.js"></script>
 <script src="{{ site.baseurl }}/js/admin/make-droppable.js"></script>
 <script src="{{ site.baseurl }}/js/admin/drag-and-drop.js"></script>
-
