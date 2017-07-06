@@ -29,7 +29,7 @@ title: "Edit Post"
                     </div>
                     <div style="margin-bottom: 25px;">
                         <label for="categories">Categories/Tags:</label>
-                        <input type="text" id="category" name="Categories" placeholder="Enter categories separated by spaces here.">
+                        <input type="text" id="category" name="Categories" placeholder="Enter categories separated by commas.">
                     </div>
 
                 <button class="btn btn-primary"><span class="fa fa-times"></span> Cancel</button>
@@ -46,7 +46,7 @@ window.store = {
     {% for post in site.posts %}
       "{{ post.url | slugify }}": {
         "title": "{{ post.title | xml_escape }}",
-        "category": "{{ post.category | xml_escape }}",
+        "categories": {{ post.categories | jsonify }},
         "content": {{ post.content | jsonify }},
         "image_path": "{{ post.image_path | xml_escape }}",
         "url": "{{ post.url | xml_escape }}"

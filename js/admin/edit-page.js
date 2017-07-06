@@ -1,7 +1,8 @@
 // Edit page.js
 (function() {
   var lrv = window.location.hash.split('#')[1];
-  var searchTerm = lrv.split('Page')[0];
+  var page = lrv.split('Page')[1];
+  var searchTerm = lrv.split('Page')[0] + ' ' + page;
 
   if (searchTerm) {
     // document.getElementById('search-box').setAttribute("value", searchTerm);
@@ -11,15 +12,15 @@
     var idx = lunr(function () {
       this.field('id');
       this.field('title', { boost: 10 });
-      this.field('category');
       this.field('content');
+      this.field('page_num');
     });
 
     for (var key in window.store) { // Add the data to lunr
       idx.add({
         'id': key,
         'title': window.store[key].title,
-        'category': window.store[key].category,
+        'page_num': window.store[key].page_num,
         'content': window.store[key].content
       });
 

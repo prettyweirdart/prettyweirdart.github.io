@@ -10,7 +10,7 @@
     $('#title').val(postTitle);
     $('#title').css('placeholder', '');
 
-    var categories = item.category;
+    var categories = item.categories;
     $('#category').val(categories);
 
     var imagePath = item.image_path;

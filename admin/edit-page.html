@@ -26,7 +26,7 @@ title: "Edit Page"
                     </div>
                     <div style="margin-bottom: 25px;">
                         <label for="categories">Categories/Tags:</label>
-                        <input type="text" id="category" name="Categories" placeholder="Enter categories separated by spaces here.">
+                        <input type="text" id="category" name="Categories" placeholder="Enter categories/tags separated by commas.">
                     </div>
 
                 <button class="btn btn-primary"><span class="fa fa-times"></span> Cancel</button>
@@ -43,7 +43,7 @@ title: "Edit Page"
           "{{ comic.url | slugify }}": {
             "title": "{{ comic.title | xml_escape }}",
             "author": "{{ comic.author | xml_escape }}",
-            "category": "{{ comic.category | xml_escape }}",
+            "categories": {{ comic.categories | jsonify }},
             "url": "{{ comic.url | xml_escape }}",
             "image_path": "{{ comic.image_path | xml_escape }}",
             "page_num": "{{ comic.page_num | xml_escape }}",
