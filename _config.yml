@@ -1,10 +1,10 @@
+exclude: js/admin/filehandler
 name: prettyweirdart
 markdown: kramdown
 facebook: https://prettyweirdart.facebook.com
 instagram: https://www.instagram.com/ethanmongin_aka_prettyweirdart/
 twitter: https://twitter.com/prettyweirdart
 deviantart: http://ehudsbloodysword.deviantart.com
-exclude: js/admin/filehandler
 collections:
   comics:
     output: true
