@@ -11,7 +11,7 @@ title: "Schedule"
 				<tbody>
 				{% for convention in site.conventions %}
 						<tr>
-							<td><a href="{{ convention.url }}"><h5>{{ convention.date | date_to_long_string }}: {{ convention.title }} – {{ convention.location }}</h5></a></td>
+							<td><a href="{{ convention.url }}"><h5>{{ convention.start_date | date_to_long_string }}: {{ convention.title }} – {{ convention.location }}</h5></a></td>
 						</tr>
 						<tr>
 							<td>{{ convention.excerpt }}</td>
