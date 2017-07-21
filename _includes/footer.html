@@ -27,7 +27,7 @@
 				<h5>Upcoming Events</h5>
 					{% assign conventions = site.conventions | limit: 6 %}
 					{% for convention in conventions %}
-						<li><a href="{{ convention.url }}">{{ convention.date | date_to_long_string }}: {{ convention.title }}</a></li>
+						<li><a href="{{ convention.url }}">{{ convention.start_date | date_to_long_string }}: {{ convention.title }}</a></li>
 					{% endfor %}
 				</ul>
 			</div>
