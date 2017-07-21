@@ -2,34 +2,24 @@
 layout: default
 title: "Gallery"
 ---
+
 <div class="row">
 	<div class="col-lg-12">
-		<h2>Gallery</h2>
-		<form style="margin-top: 40px;" action="search.html" method="get">
-			<div style="margin-top: -25px;">
-				<label for="search">Search This Site:</label>
-				<input class="search" type="text" id="search-box" name="query" placeholder="Search...">
-				<span class="fa fa-search" style="float: right; margin-top: -27px;"></span>
-			</div>
-		</form>
-	</div>
-</div>
-<div class="row">
-	<div class="col-lg-12">
+		<h1>Gallery</h1>
 		<div class="grid">
 			{% assign prevtitle = '' %}
 			{% assign artworks = site.artworks | sort:'title' %}
 			{% for artwork in artworks %}
 				{% if forloop.first %}
 					<div class="grid-item hvr-grow-shadow">
-						<a href="{{ artwork.url }}"><img src="{{ artwork.image_path }}" /></a>
+						<a href="{{ artwork.url }}" title="{{ artwork.title }}" description="{{ artwork.title }}"><img src="{{ artwork.image_path }}" title="{{ artwork.title }}" /></a>
 					</div>
 					{% assign prevtitle = artwork.title %}
 					{% else %}
 						<h1>{{ previndex }}</h1>
 						{% if artwork.title != prevtitle %}
 							<div class="grid-item hvr-grow-shadow">
-								 <a href="{{ artwork.url }}"><img class="hvr-fade" src="{{ artwork.image_path }}" /></a>
+								 <a href="{{ artwork.url }}" title="{{ artwork.title }}" description="{{ artwork.title }}"><img class="hvr-fade" src="{{ artwork.image_path }}" title="{{ artwork.title }}" /></a>
 							</div>
 							{% assign prevtitle = artwork.title %}
 						{% endif %}

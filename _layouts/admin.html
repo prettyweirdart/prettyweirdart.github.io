@@ -8,26 +8,9 @@
     {% include header.html %}
     <div class="white">
         <div class="container">
-            {% if page.id %}
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="post">
-                            <span class="metadata"><a href=""></a> :: Posted in: 
-                            {% for category in page.categories %}
-                                <a href="/categories/#{{ category }}">{{ category }}</a>
-                            {% endfor %}
-                            </span>
-                            <h3 style="margin-top:0;"> {{ page.title }} </h3>
-            {% endif %}
 
             {{ content }}
 
-            {% if page.id %}
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
         </div>
     </div>
 
@@ -37,27 +20,45 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="{{ site.baseurl }}/plugins/trumbo/dist/trumbowyg.js"></script>
-<script>      
+<script src="{{ site.baseurl }}/plugins/date-picker/picker.js"></script>
+<script src="{{ site.baseurl }}/plugins/date-picker/picker.date.js"></script>
+<script> 
+    var page;    
     // Enable Trumbo Editor.
     $.trumbowyg.svgPath = '{{ site.baseurl }}/plugins/trumbo/dist/ui/icons.svg';
     $('#editor').trumbowyg();
 
-    // Strip Variable data from uri.
-    var liquidRetrievalVars = window.location.hash.split('#')[1];
-    var titleClass = liquidRetrievalVars.replace(/ /g, '-').split('page')[0];
-    var comicVar = liquidRetrievalVars.split('Page')[0];   
+    // Strip Variable data from url when present.
+    var liquidRetrievalVars = window.location.hash.split('#')[1] || '';
+    var titleClass = liquidRetrievalVars.replace(/ /g, '-').split('-page')[0];
+    titleClass = titleClass.replace(/[.,\/#!$%\^&\*;:{}=\_`~()]/g,'');
+    var comicVar = liquidRetrievalVars.split(' Page')[0];   
 
     // // Hide extra data, then display for select page items.
     $('.do-not-display').hide();
     $('.comic-title').html( liquidRetrievalVars );
-    $('.'+titleClass).show();
+    if (titleClass !== '') {
+        $('.' + titleClass).show();  
+    }
 
     // Append URL variables in order to populate page data.
     $('.comic-variable').attr("href", function(i, href) { return href + comicVar; });
     $('.page-variable').attr("href", function(i, href) { return href + liquidRetrievalVars; });
     // Append active class to items with page id.
     $('#{{ page.title }}').addClass('active');
+
+    $('.delete-button').click(function () {
+        page = this.id.split('delete-page-')[1];
+        $('.page-number').html(page);
+    });
+
+    $('.delete-comic-button').click(function () {
+        liquidRetrievalVars = this.id.replace(/ /g, '-');
+    }); 
+    
+    $('#date').pickadate();   
 </script>
+<script src="{{ site.baseurl }}/js/admin/input-handler.js"></script>
 <script src="{{ site.baseurl }}/js/admin/populate-post-editors.js"></script>
 </body>
 

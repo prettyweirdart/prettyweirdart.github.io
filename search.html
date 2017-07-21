@@ -4,60 +4,61 @@ title: "Search Results"
 ---
 <div class="row">
   <div class="col-lg-8 col-lg-offset-2">
-    <h2>Search Results</h2>
-    <form style="margin-top: 40px;" action="/search.html" method="get">
-      <div style="margin-top: -25px;">
-        <label for="search">Search This Site:</label>
-        <input class="search" type="text" id="search-box" name="query" placeholder="Search...">
-        <span class="fa fa-search" style="float: right; margin-top: -27px;"></span>
-      </div>
-    </form>
+	<h5><a href=" {{ site.baseurl }}/blog.html"> < Back to Blog</a></h5>
+	<h1>Search Results</h1>
+	<form style="margin-top: 40px;" action="/search.html" method="get">
+	  <div style="margin-top: -25px;">
+		<label for="search">Search This Site:</label>
+		<input class="search" type="text" id="search-box" name="query" style="padding-left: 30px;" placeholder="Search...">
+		<span class="fa fa-search" style="float: right; margin-top: -27px;"></span>
+	  </div>
+	</form>
   </div>
 </div>
 <div class="row">
   <div class="col-lg-8 col-lg-offset-2">
-    <ul id="search-results"></ul>
+	<ul id="search-results"></ul>
   </div>
 </div>
 
 <script>
   window.store = {
-    {% for post in site.posts %}
-      "{{ post.url | slugify }}": {
-        "title": "{{ post.title | xml_escape }}",
-        "author": "{{ post.author | xml_escape }}",
-        "categories": {{ post.categories | jsonify }},
-        "content": {{ post.content | strip_html | strip_newlines | jsonify }},
-        "url": "{{ post.url | xml_escape }}"
-      },
-    {% endfor %}
-    {% for artwork in site.artworks %}
-      "{{ artwork.url | slugify }}": {
-        "title": "{{ artwork.title | xml_escape }}",
-        "author": "{{ artwork.author | xml_escape }}",
-        "categories": {{ artwork.categories | jsonify }},
-        "content": {{ artwork.content | strip_html | strip_newlines | jsonify }},
-        "url": "{{ artwork.url | xml_escape }}"
-      },
-    {% endfor %}
-    {% for comic in site.comics %}
-      "{{ artwork.url | slugify }}": {
-        "title": "{{ comic.title | xml_escape }}",
-        "author": "{{ comic.author | xml_escape }}",
-        "categories": {{ comic.categories | jsonify }},
-        "content": {{ comic.content | strip_html | strip_newlines | jsonify }},
-        "url": "{{ comic.url | xml_escape }}"
-      },
-    {% endfor %}
-    {% for convention in site.conventions %}
-      "{{ convention.url | slugify }}": {
-        "title": "{{ convention.title | xml_escape }}",
-        "author": "{{ convention.author | xml_escape }}",
-        "categories": {{ convention.categories | jsonify }},
-        "content": {{ convention.content | strip_html | strip_newlines | jsonify }},
-        "url": "{{ convention.url | xml_escape }}"
-      },
-    {% endfor %}
+	{% for post in site.posts %}
+	  "{{ post.url | slugify }}": {
+		"title": "{{ post.title | xml_escape }}",
+		"author": "{{ post.author | xml_escape }}",
+		"categories": {{ post.categories | jsonify }},
+		"content": {{ post.content | strip_html | strip_newlines | jsonify }},
+		"url": "{{ post.url | xml_escape }}"
+	  },
+	{% endfor %}
+	{% for artwork in site.artworks %}
+	  "{{ artwork.url | slugify }}": {
+		"title": "{{ artwork.title | xml_escape }}",
+		"author": "{{ artwork.author | xml_escape }}",
+		"categories": {{ artwork.categories | jsonify }},
+		"content": {{ artwork.content | strip_html | strip_newlines | jsonify }},
+		"url": "{{ artwork.url | xml_escape }}"
+	  },
+	{% endfor %}
+	{% for comic in site.comics %}
+	  "{{ artwork.url | slugify }}": {
+		"title": "{{ comic.title | xml_escape }}",
+		"author": "{{ comic.author | xml_escape }}",
+		"categories": {{ comic.categories | jsonify }},
+		"content": {{ comic.content | strip_html | strip_newlines | jsonify }},
+		"url": "{{ comic.url | xml_escape }}"
+	  },
+	{% endfor %}
+	{% for convention in site.conventions %}
+	  "{{ convention.url | slugify }}": {
+		"title": "{{ convention.title | xml_escape }}",
+		"author": "{{ convention.author | xml_escape }}",
+		"categories": {{ convention.categories | jsonify }},
+		"content": {{ convention.content | strip_html | strip_newlines | jsonify }},
+		"url": "{{ convention.url | xml_escape }}"
+	  },
+	{% endfor %}
   };
 </script>
 <script src="{{ site.baseurl }}/js/lunr.min.js"></script>

@@ -7,31 +7,31 @@ title: "Edit Artwork"
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
             <h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-comics.html"><h5 style="display:inline;">Manage Comics></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-pages.html#"><h5 style="display:inline;">Manage Pages:</h5> <h5 class="comic-title" style="display:inline"></h5></a><a class="page-variable" href="{{ site.baseurl }}/admin/edit-page.html#"><h5 style="display:inline;">>Edit Page</h5></a>
-            <h2>Edit Page</h2>
-                {% assign comics = site.comics | sort:'title' %}
-                {% for comic in comics %}
-                {% endfor %}
 
-                <form class="form-horizontal">
-                    <div>
-                        <label for="mail">Main Image:</label>
-                        <div class="dropzone" id="image-selection"><div class="output"></div></div>
-                    </div>
-                    <div>
-                        <label for="description" style="margin-top:15px;">Description:</label>
-                        <div class="main" style="margin-top:-18px;">
-                            <div id="editor">
+                <div class="form">
+                    <h2>Edit Page</h2>
+                    <form class="form-horizontal">
+                        <div>
+                            <label for="mail">Main Image:</label>
+                            <div class="dropzone" id="image-selection"><div class="output"></div></div>
+                        </div>
+                        <div>
+                            <label for="description" style="margin-top:15px;">Description:</label>
+                            <div class="main" style="margin-top:-18px;">
+                                <div id="editor">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div style="margin-bottom: 25px;">
-                        <label for="categories">Categories/Tags:</label>
-                        <input type="text" id="category" name="Categories" placeholder="Enter categories/tags separated by commas.">
-                    </div>
+                        <div style="margin-bottom: 25px;">
+                            <label for="categories">Categories/Tags:</label>
+                            <input type="text" id="category" name="Categories" placeholder="Enter categories/tags separated by commas.">
+                        </div>
 
-                <button class="btn btn-primary"><span class="fa fa-times"></span> Cancel</button>
-                <button class="btn btn-primary" type="submit"><span class="fa fa fa-floppy-o"></span> Save</button>
-                </form>
+                        <button class="btn btn-primary"><span class="fa fa-times"></span> Cancel</button>
+                        <button class="btn btn-primary" type="submit"><span class="fa fa fa-floppy-o"></span> Save</button>
+                    </form>
+                </div>
+                
             </div>
         </div>
     </div>

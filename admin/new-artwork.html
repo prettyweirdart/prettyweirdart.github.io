@@ -6,35 +6,39 @@ title: "New Comic"
 <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-            <h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>><a href="{{ site.baseurl }}/admin/manage-comics.html">Manage Comics</a>><a href="{{ site.baseurl }}/admin/manage-pages.html#">Manage Pages</a>: </h5><h5 class="comic-title" style="display:inline"></h5><h5 style="display:inline">>Add Page</h5>
-            <h2>New Page</h2>
-                <form class="form-horizontal">
-                    <div>
-                        <label for="mail">Main Image:</label>
-                        <div class="dropzone" id="image-selection"></div>
-                    </div>
-                    <div>
-                        <label for="description" style="margin-top:15px;">Description:</label>
-                        <div class="main" style="margin-top:-18px;">
-                            <div id="editor">
-                                <p><strong> Create a new comic! </strong></p>
-                                <p>
-                                    • Enter any description to appear below the page. <br /> 
-                                    • Transcribe the page to make it searchable.  <br />
-                                    • Any images added will automatically be referenced from the page's "images" folder. <br />
-                                    • Format this text using the editor here, or click the '<>' button to edit HTML directly.<br />
-                                    • Any and all html &amp; basic javascript will execute on page load.
-                                </p>
-                                <p><strong>Delete if you do not want anything to appear below the comic page.</strong></p>
+            <h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>><a href="{{ site.baseurl }}/admin/manage-artworks.html">Manage Gallery</a></h5><h5 style="display:inline">> New Art</h5>
+                
+                <div class="form">
+                    <h2>New Art</h2>
+                    <form class="form-horizontal">
+                        <div>
+                            <label for="image-selection">Main Image:</label>
+                            <div class="dropzone" id="image-selection"></div>
+                        </div>
+                        <div>
+                            <label for="description" style="margin-top:15px;">Description:</label>
+                            <div class="main" style="margin-top:-18px;">
+                                <div id="editor">
+                                    <p><strong> Add more art! </strong></p>
+                                    <p>
+                                        • Enter any description to appear below the page. <br /> 
+                                        • Transcribe the page to make it searchable.  <br />
+                                        • Any images added will automatically be referenced from the page's "images" folder. <br />
+                                        • Format this text using the editor here, or click the '<>' button to edit HTML directly.<br />
+                                        • Any and all html &amp; basic javascript will execute on page load.
+                                    </p>
+                                    <p><strong>Delete if you do not want anything to appear below the comic page.</strong></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div style="margin-bottom: 25px;">
-                        <input type="text" id="category" name="Categories" placeholder="Enter categories separated by spaces here.">
-                    </div>
-                <button class="btn btn-primary" type="submit"><span class="fa fa fa-floppy-o"></span> Save</button>
-                <button class="btn btn-primary"><span class="fa fa-times"></span> Cancel</button>
-                </form>
+                        <div style="margin-bottom: 25px;">
+                            <input type="text" id="category" name="Categories" placeholder="Enter categories separated by spaces here.">
+                        </div>
+                    <a class="btn btn-primary" type="submit" onclick="saveArtwork()" href=""><span class="fa fa fa-floppy-o"></span> Save</button>
+                    <button class="btn btn-primary"><span class="fa fa-times"></span> Cancel</button>
+                    </form>
+                </div>
+
             </div>
         </div>
     </div>

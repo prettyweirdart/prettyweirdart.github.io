@@ -1,34 +1,36 @@
 ---
 layout: admin
-title: "New Comic Page"
+title: "New Event"
 ---
 
 <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-            <h5 style="display:inline">Admin></h5><a href="{{ site.baseurl }}/admin/manage-comics.html"><h5 style="display:inline;">Manage Comics></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-pages.html#"><h5 style="display:inline;">Manage Pages:</h5> <h5 class="comic-title" style="display:inline"></h5></a><a class="page-variable" href="{{ site.baseurl }}/admin/new-page.html#"><h5 style="display:inline;">>New Page</h5></a>
+            <h5 style="display:inline"><a href="{{ site.baseurl }}/admin/">Admin</a>></h5><a href="{{ site.baseurl }}/admin/manage-posts.html"><h5 style="display:inline;">Manage Posts></h5><a class="comic-variable" href="{{ site.baseurl }}/admin/manage-posts.html#"><h5 style="display:inline;">Manage Posts:</h5> <h5 class="comic-title" style="display:inline"></h5></a><a class="page-variable" href="{{ site.baseurl }}/admin/new-post.html#"><h5 style="display:inline;">>New Post</h5></a>
                 
                 <div class="form">
-                    <h2>New Page</h2>
+                    <h2>New Event</h2>
                     <form class="form-horizontal">
-                        <input id="page-num" type="hidden" value="" >
+                        <div style="margin-bottom: 8px;">
+                            <label for="tags">Event Title:</label>
+                            <input style="margin-top: -22px;" type="text" id="title" name="title" placeholder="Enter a title for the post here.">
+                        </div>
                         <div>
-                            <label for="image">Main Image:</label>
+                            <label for="image">Featured Image: (This will appear above the post in the blog feed.)</label>
                             <div class="dropzone" id="image-selection"></div>
                         </div>
                         <div>
                             <label for="description" style="margin-top:15px;">Description:</label>
                             <div class="main" style="margin-top:-18px;">
                                 <div id="editor">
-                                    <h4><strong> Create a new Page </strong></h4>
+                                    <h4><strong> Create a New Event.</strong></h4>
                                     <p>
                                         • Enter any description to appear below the page. <br /> 
-                                        • Transcribe the page to make it searchable or add sketches, early drawings, version notes, or annotations.<br />
                                         • Any images added will automatically be referenced from the page's "images" folder. <br />
                                         • Format this text using the editor here, or click the '<>' button to edit HTML directly.<br />
                                         • Any and all html &amp; basic javascript will execute on page load.
                                     </p>
-                                    <p><strong>Delete this text if you do not want anything to appear below the comic page.</strong></p>
+                                    <p><strong>Delete this text or it will appear in your new post.</strong></p>
                                 </div>
                             </div>
                         </div>
@@ -37,9 +39,9 @@ title: "New Comic Page"
                             <input style="margin-top: -22px;" type="text" id="category" name="Categories" placeholder="Enter categories/tags separated by spaces here.">
                         </div>
                         <button class="btn btn-primary"><span class="fa fa-times"></span> Cancel</button>
-                        <a class="btn btn-primary comic-variable" onclick="savePage()" href="{{ site.baseurl }}/admin/manage-pages.html#"><span class="fa fa fa-floppy-o"></span> Save</a>
+                        <button class="btn btn-primary" type="submit"><span class="fa fa fa-floppy-o"></span> Save</button>
                     </form>
-                </div> 
+                </div>
 
             </div>
         </div>

@@ -36,6 +36,7 @@
   console.log(searchTerm);
 
   if (searchTerm) {
+    document.getElementById('category-title').innerHTML = "#" + searchTerm;
     document.getElementById('search-box').setAttribute("value", searchTerm);
 
     // Initalize lunr with the fields it will be searching on. I've given title

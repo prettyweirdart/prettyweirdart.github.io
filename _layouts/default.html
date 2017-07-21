@@ -110,6 +110,8 @@
   type: 'char'
 }); 
 
+    $('#search-box') === $(document.activeElement) ? console.log('active') : $('.search-icon').removeClass('active');
+
     $('#{{ page.title }}').addClass('active');
 
     $('.grid').masonry({

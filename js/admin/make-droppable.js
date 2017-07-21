@@ -1,7 +1,7 @@
 function triggerCallback(e, callback) {
   
   if(!callback || typeof callback !== 'function') {
-    console.log('urk!');
+    console.log('error');
     return;
   }
   var files;
