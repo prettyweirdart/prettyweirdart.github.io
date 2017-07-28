@@ -11,9 +11,12 @@ function savePage () {
 	$.post('http://127.0.0.1:8081/', { "comic":request });
 }
 
-function editComicTitle (editTitle) {
+function editComicTitle () {
+	var editTitle = $('#edited-title').val().replace(/ /g, '-');
 	var title = comicVar.replace(/ /g, '-');
-	var request = JSON.stringify({ "type":"editAll", "title":title, "editTitle":editTitle });
+	var maxPages = $('#' + title + '-max-pages').attr('class');
+	console.log(maxPages);
+	var request = JSON.stringify({ "type":"editAll", "title":title, "editTitle":editTitle, "maxPages":maxPages });
 
 	$.post('http://127.0.0.1:8081/', { "comic":request });
 }
@@ -33,8 +36,9 @@ function deletePage (pageNum) {
 } */
 
 function deleteComic () {
-	var title = comicVar.replace(/ /g, '-');
-	var request = JSON.stringify({ "type":"delete", "title":title, "pageNum":pageNum });
+	var title = liquidRetrievalVars.replace(/ /g, '-');
+	var maxPages = $('#' + title + '-max-pages').attr('class');
+	var request = JSON.stringify({ "type":"deleteAll", "title":title, "maxPages":maxPages });
 
 	$.post('http://127.0.0.1:8081/', { "comic":request });
 }

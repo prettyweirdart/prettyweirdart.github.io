@@ -3,17 +3,18 @@ layout: default
 title: "Blog"
 ---
 <div class="row">
-	<div class="col-lg-8 col-lg-offset-2">
+	<div class="col-lg-8">
 		<h1 style="margin-bottom: 0px;">A Pretty Weird Blog</h1>
 		<!-- <p style="margin-top: 10px; font-weight: 800; font-style: italic; color: #9533a9; line-height: 1.5;">News, updates, and musings–the latest &amp; greatest from Pretty Weird Art</p> -->
-
-		<form style="margin-top: 40px;" action="/search.html" method="get">
-			<div style="margin-top: -25px;">
-				<label for="search">Search This Site:</label>
-				<input class="search" type="text" id="search-box" name="query" style="padding-left: 25px;" placeholder="Search...">
-				<span class="fa fa-search search-icon"></span>
-			</div>
-		</form>
+		<div class="post">
+			<form action="/search.html" method="get">
+				<div style="margin-top: -25px;">
+					<label for="search">Search This Site:</label>
+					<input class="search" type="text" id="search-box" name="query" style="padding-left: 25px;" placeholder="Search...">
+					<span class="fa fa-search search-icon"></span>
+				</div>
+			</form>
+		</div>
 		{% for post in site.posts %}
 			<div class="post">
 				{% if post.image_path != nil %}
@@ -38,7 +39,7 @@ title: "Blog"
 			</div>
 		{% endfor %}
 	</div>
-	<div class="col-lg-2">
+	<div class="col-lg-offset-1 col-lg-3 ">
 		<h4 style="margin-bottom: 0; text-align: right; margin-top: 30px;">Categories</h4>
 		<ul class="cat-list">
 			{% for category in site.categories %}

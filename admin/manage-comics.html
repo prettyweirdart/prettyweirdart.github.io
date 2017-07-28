@@ -33,6 +33,7 @@ title: "Manage Comics"
 											{% endif %}
 										{% endfor %}
 										<h5>{{ pagecount }} Pages</h5>
+										<div id="{{ comic.title | replace: ' ', '-' }}-max-pages" class="{{ pagecount }}" ></div>
 
 									</div>
 									<div class="col-lg-3"> 
@@ -61,10 +62,11 @@ title: "Manage Comics"
 											{% endif %}
 										{% endfor %}
 										<h5>{{ pagecount }} Pages</h5>
+										<div id="{{ comic.title | replace: ' ', '-' }}-max-pages" class="{{ pagecount }}" ></div>
 									</div>
 										<div class="col-lg-3">
 											<div class="pull-right"> 
-												<button id="{{ comic.title }}" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#delete-modal"><span class="fa fa-trash"></span> Delete</button>
+												<button id="{{ comic.title | replace: ' ', '-' }}" class="btn btn-primary btn-xs delete-comic-button" data-toggle="modal" data-target="#delete-modal"><span class="fa fa-trash"></span> Delete</button>
 												<a href="{{ site.baseurl }}/admin/manage-pages.html#{{ comic.title }}" class="btn btn-primary btn-xs"><span class="fa fa-pencil"></span> Edit</a>
 											</div>
 										</div>
@@ -114,8 +116,8 @@ title: "Manage Comics"
         </button>
       </div>
       <div class="modal-body">
-        <p>Are you sure you want to delete</p>
-        <p class="comic-title" style="display: inline;"></p>
+        <p style="display:inline">Are you sure you want to delete</p>
+        <p class="comic-title" style="display:inline"></p>
         <p style="display:inline">?</p>
       </div>
       <div class="modal-footer">

@@ -13,11 +13,13 @@ title: "Edit Page"
                     <form class="form-horizontal">
                         <div style="margin-bottom: 8px;">
                             <label for="page-num">Page Number:</label>
-                            <input style="margin-top: -22px;" type="text" id="page-num" name="page-num" placeholder="">
+                            <select name="page-num" id="page-num">                                
+                            </select>
+                            <!-- <input style="margin-top: -22px;" type="text" id="page-num" name="page-num" placeholder=""> -->
                         </div>
                         <div>
-                            <label for="mail">Main Image:</label>
-                            <div class="dropzone" id="image-selection"><div class="output"></div></div>
+                            <label for="image-selection">Image:</label>
+                            <div class="dropzone" id="image-selection" name="image-selection"><div class="output"></div></div>
                         </div>
                         <div>
                             <label for="description" style="margin-top:15px;">Description:</label>

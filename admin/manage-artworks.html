@@ -16,7 +16,7 @@ title: "Manage Gallery"
 				<tbody>
 					{% assign pagecount = 0 %}
 					{% assign prevtitle = '' %}
-					{% assign artworks = site.artworks | sort:'title' %}
+					{% assign artworks = site.gallery | sort:'title' %}
 					{% for artwork in artworks %}
 						{% if forloop.first %}
 							<tr>

@@ -43,6 +43,33 @@ title: "Manage Pages"
 						</tr>
 					</a>
 				{% endfor %}
+        
+        {% assign pagecount = 0 %}
+        {% assign prevtitle = '' %}
+        {% assign comics = site.comics | sort:'title' %}
+        {% for comic in comics %}
+          {% if forloop.first %}
+            {% for object in site.comics %}
+              {% if object.title == comic.title %}
+                {% assign pagecount = pagecount | plus: 1 %}
+              {% endif %} 
+            {% endfor %}
+            <div id="{{ comic.title | replace: ' ', '-' }}-max-pages" class="{{ pagecount }}" ></div>
+            {% assign prevtitle = comic.title %}
+          {% else %}
+            {% if comic.title != prevtitle %}
+              {% assign pagecount = 0 %}
+              {% for object in site.comics %}
+                {% if object.title == comic.title %}
+                  {% assign pagecount = pagecount | plus: 1 %}
+                {% endif %}
+              {% endfor %}
+              <div id="{{ comic.title | replace: ' ', '-' }}-max-pages" class="{{ pagecount }}" ></div>
+              {% assign prevtitle = comic.title %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+
 				</tbody>
 			</table>
 		</div>
@@ -114,7 +141,7 @@ title: "Manage Pages"
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><span class="fa fa-times"></span> Cancel</button>
-        <button type="button" onclick="editComic();window.location.reload();" class="btn btn-primary btn-sm"><span class="fa fa-floppy"></span> Save</button>
+        <button type="button" onclick="editComicTitle();window.location.reload();" class="btn btn-primary btn-sm"><span class="fa fa-floppy"></span> Save</button>
       </div>
     </div>
   </div>

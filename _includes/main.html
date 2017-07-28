@@ -1,15 +1,19 @@
 </div>
 
 <div class="main-page">
-	<div class="main-bg">
-		{% for comic in site.comics limit:1 %}
-			<div class="main-img" style="width: 100%; height: 100%; background: no-repeat top center/cover url({{ comic.image_path }});"></div>
-			<div class="main-img-overlay"></div>
-		{% endfor %}
+	<div id="landing-bg" class="main-bg">
+		<div class="main-img" style="width: 100%; height: 100%; background: no-repeat center center/cover url({% for comic in site.comics limit:1 %} {{ comic.image_path }} {% endfor %}); background-color: inherit; background-blend-mode: luminosity;"></div>
+			<div class="logo">
+					<img class="animated zoomIn" src="{{ site.baseurl }}/images/pwa-main-page-logo.svg" />
+					<div style="width:125%;margin-left:-12%;margin-top:20px;" class="center">
+						<img style="width: 49%; display:inline;" class="animated fadeInUpBig" src="{{ site.baseurl }}/images/pretty.svg" />
+						<img style="width: 48%; display:inline;" class="animated fadeInUpBig" src="{{ site.baseurl }}/images/weird.svg" />
+						<img style="width:31%;"" class="animated fadeInUpBig" src="{{ site.baseurl }}/images/art.svg" />
+					</div>	
+			</div>
+			<div class="latest-page">
+				<p>Newest Update: Check out the latest pages from DeMarcus Williams!</p>
+			</div>		
 	</div>
-	<div class="logo"><img class="animated zoomIn" src="{{ site.baseurl }}/images/pwa-main-page-logo.svg" /><div class="center"><h1 class="tlt animated zoomIn logo-type" style="font-size: 63pt; color: #e51d5b; font-family: 'Misfits'; text-transform:uppercase;" >Pretty Weird Art</h1></div></div>
-	<div class="latest-page">
-		<p>Latest Comic: Check out the latest page from DeMarcus Williams!</p>
-	</div>	
 </div>
 <div class="container">

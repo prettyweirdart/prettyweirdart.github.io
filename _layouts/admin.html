@@ -1,6 +1,7 @@
 {% include head.html %}
 <head>
     <link rel="stylesheet" href="{{ site.baseurl }}/plugins/trumbo/dist/ui/trumbowyg.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/plugins/date-picker/themes/default.css">
 </head>
 <script src="{{ site.baseurl }}/js/admin/globals.js"></script>
 <body>
@@ -22,12 +23,13 @@
 <script src="{{ site.baseurl }}/plugins/trumbo/dist/trumbowyg.js"></script>
 <script src="{{ site.baseurl }}/plugins/date-picker/picker.js"></script>
 <script src="{{ site.baseurl }}/plugins/date-picker/picker.date.js"></script>
-<script>     
+<script>
     // Enable Trumbo Editor.
     $.trumbowyg.svgPath = '{{ site.baseurl }}/plugins/trumbo/dist/ui/icons.svg';
     $('#editor').trumbowyg();
 
     var page = '';
+
     // Strip Variable data from url when present.
     var liquidRetrievalVars = window.location.hash.split('#')[1] || '';
     var titleClass = liquidRetrievalVars.replace(/ /g, '-').split('-page')[0];
@@ -53,7 +55,8 @@
     });
 
     $('.delete-comic-button').click(function () {
-        liquidRetrievalVars = this.id.replace(/ /g, '-');
+        liquidRetrievalVars = this.id.replace(/-/g, ' ');
+        $('.comic-title').html(liquidRetrievalVars);
     }); 
     
     $('#date').pickadate();   

@@ -1,4 +1,4 @@
-exclude: js/admin/filehandler
+exclude: [ js/admin/filehandler ]
 name: prettyweirdart
 markdown: kramdown
 facebook: https://prettyweirdart.facebook.com
@@ -8,7 +8,7 @@ deviantart: http://ehudsbloodysword.deviantart.com
 collections:
   comics:
     output: true
-  artworks:
+  gallery:
     output: true
   conventions:
     output: true

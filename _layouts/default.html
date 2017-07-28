@@ -10,10 +10,10 @@
                 <div class="col-lg-8">
                     <div class="row">
                         <div class="post">
-                            <span class="metadata"><a href=""></a> :: Posted in:
+                            <span class="metadata"><a href=""></a>Posted 
                             <ul> 
                               {% for category in page.categories %}
-                                  <li><a href="/categories/#{{ category }}">{{ category }}</a></li>
+                                  <li><a href="{{ site.baseurl }}/categories/#{{ category }}">{{ category }}</a></li>
                               {% endfor %}
                             </ul>
                             </span>
@@ -118,6 +118,36 @@
       // options
       itemSelector: '.grid-item' });
 </script>
+
+{% if page.title == "Pretty Weird Art" %}
+<script src="{{ site.baseurl }}/js/vibran.min.js"></script>
+<img id="landing-img" src="{% for comic in site.comics limit:1 %}{{ comic.image_path }}{% endfor %}" style="display:none" />
+<script>
+  var img = document.getElementById('landing-img');
+  var vibrant = new Vibrant(img);
+  var swatches = vibrant.swatches();
+  var feature = document.getElementById('landing-bg');
+  var color = swatches['LightVibrant'].getHex();
+  if (feature != undefined) feature.style.backgroundColor = color;
+</script>
+  {% assign updates = (site.documents | sort: 'date') | reverse %}
+  {% for item in updates limit:10 %}
+    {% if item.image_path %}
+      <img id="feature-image-{{ forloop.index }}" src="{{ item.image_path }}" style="display:none" />
+      <script>
+        var img = document.getElementById('feature-image-{{ forloop.index }}');
+        var vibrant = new Vibrant(img);
+        var swatches = vibrant.swatches();
+        var feature = document.getElementById('feature-{{ forloop.index }}');
+        var color = swatches['Vibrant'].getHex();
+        console.log(color);
+        if (feature != undefined) feature.style.backgroundColor = color;
+      </script>
+    {% else %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
 
 </body>
 

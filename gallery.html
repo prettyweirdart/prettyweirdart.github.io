@@ -8,7 +8,7 @@ title: "Gallery"
 		<h1>Gallery</h1>
 		<div class="grid">
 			{% assign prevtitle = '' %}
-			{% assign artworks = site.artworks | sort:'title' %}
+			{% assign artworks = site.gallery | sort:'title' %}
 			{% for artwork in artworks %}
 				{% if forloop.first %}
 					<div class="grid-item hvr-grow-shadow">
