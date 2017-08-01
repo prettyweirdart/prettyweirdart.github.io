@@ -1,19 +1,35 @@
 </div>
-
-<div class="main-page">
-	<div id="landing-bg" class="main-bg">
-		<div class="main-img" style="width: 100%; height: 100%; background: no-repeat center center/cover url({% for comic in site.comics limit:1 %} {{ comic.image_path }} {% endfor %}); background-color: inherit; background-blend-mode: luminosity;"></div>
-			<div class="logo">
-					<img class="animated zoomIn" src="{{ site.baseurl }}/images/pwa-main-page-logo.svg" />
-					<div style="width:125%;margin-left:-12%;margin-top:20px;" class="center">
-						<img style="width: 49%; display:inline;" class="animated fadeInUpBig" src="{{ site.baseurl }}/images/pretty.svg" />
-						<img style="width: 48%; display:inline;" class="animated fadeInUpBig" src="{{ site.baseurl }}/images/weird.svg" />
-						<img style="width:31%;"" class="animated fadeInUpBig" src="{{ site.baseurl }}/images/art.svg" />
-					</div>	
+<div class="row no-gutter" style="max-width: 100%;">
+	<div class="col-lg-9">
+		<div class="main-page">
+			<div id="landing-bg" class="main-bg">
+				<div class="main-img" style="width: 100%; height: 100%; background: no-repeat center center/cover url({% for comic in site.comics limit:1 %} {{ comic.image_path }} {% endfor %}); background-color: inherit; background-blend-mode: luminosity;"></div>
+					<div class="logo">
+							<img class="animated zoomIn" src="{{ site.baseurl }}/images/pwa-main-page-logo.svg" />
+							<div style="width:125%;margin-left:-12%;margin-top:10px;" class="center">
+								<img style="width: 49%; display:inline;" class="animated fadeInUpBig" src="{{ site.baseurl }}/images/pretty.svg" />
+								<img style="width: 48%; display:inline;" class="animated fadeInUpBig" src="{{ site.baseurl }}/images/weird.svg" />
+								<img style="width:31%;"" class="animated fadeInUpBig" src="{{ site.baseurl }}/images/art.svg" />
+							</div>	
+					</div>
+					<!-- <div class="latest-page">
+						<p>Newest Update: Check out the latest pages from DeMarcus Williams!</p>
+					</div> -->		
+				</div>
 			</div>
-			<div class="latest-page">
-				<p>Newest Update: Check out the latest pages from DeMarcus Williams!</p>
-			</div>		
+		</div>
+		<div class="col-lg-3">
+			<div class="feature-description">
+				{% for comic in site.comics limit:1 %} 
+				<div class="metadata">
+					<span>{{ comic.date | date_to_long_string }}</span>
+				</div>	
+				<h3 style="margin-top:4px">{{ comic.title }} </h3>
+				<p class="lead"> {{ comic.description }} </p>
+				<p class="more"> <a href="{{ comic.url }}"> Check it out! </a> </p>
+				{% endfor %}
+			</div>	
+		</div>
 	</div>
-</div>
+
 <div class="container">

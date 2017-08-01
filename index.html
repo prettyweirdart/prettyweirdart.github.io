@@ -5,73 +5,96 @@ title: "Pretty Weird Art"
 {% include main.html %}
 
 <!-- New posts content -->
-<div class="row">
-	<div class="col-lg-8">
-		<h1>Latest Updates</h1>
-		{% assign updates = (site.documents | sort: 'date') | reverse %}
-		{% assign prevtitle = '' %}
-		{% for item in updates limit: 10 %}
-			{% if item.title != prevtitle %}
-			<div class="post" style="{% if item.content == '' %} padding-bottom: 0px; {% endif %}">
-				{% if item.image_path %}
-					<div id="feature-{{ forloop.index}}" class="featured-image" style="{% if item.content == '' %} padding-bottom: 0px; margin-bottom: 0px; {% endif %}">
-						<div class="featured-image-overlay" style="filter: saturate(1.25) brightness(0.6); background: no-repeat center center/cover url({{ item.image_path }}); background-blend-mode: luminosity; background-color: inherit;"></div>
-						<a class="post-link" href="{{ item.url }}"></a>	
-						<div class="feature-title-container">
-							<div class="metadata">
-								<span>Posted <strong>{{ item.date | date_to_long_string }}</strong> in <strong>{{ item.collection }}</strong></span>
+<div class="white">
+	<div class="row">
+		<div class="col-lg-7">
+			<div class="updates">
+				<h1>Latest Updates</h1>
+				{% assign updates = (site.documents | sort: 'date') | reverse %}
+				{% assign prevtitle = '' %}
+				{% for item in updates limit: 10 %}
+					{% if item.title != prevtitle %}
+					<div class="post"> 
+						{% if item.image_path %}
+							<div id="feature-{{ forloop.index}}" class="featured-image">
+								<div class="featured-image-overlay" style="background: no-repeat center center/cover url({{ item.image_path }}); background-blend-mode: luminosity; background-color: inherit;"></div>
 							</div>
-							<h3 style="margin-top:0px"><a href="{{ item.url }}"> {{ item.title }} </a></h3>
-						</div>	
+							<div>
+								<div class="metadata">
+									<span>Posted in {{ item.collection }}</span>
+								</div>
+								<h3 style="margin-top:4px"><a href="{{ item.url }}"> {{ item.title }} </a></h3>
+								<hr />
+								<div class="metadata">
+									<span>
+										{% if item.date %}
+											{{ item.date | date_to_long_string }}
+										{% endif %}
+									</span>
+								</div>
+								<p style="margin-top:-10px;">
+								    <a class="more" href="{{ post.url }}">Click to View</a>
+								</p>
+							</div>
+							{% assign prevtitle = item.title %}
+						{% else %}
+							<div>
+								<div class="metadata">
+									<span>Posted in {{ item.collection }}</span>
+								</div>
+								<h3 style="margin-top:4px"><a href="{{ item.url }}"> {{ item.title }} </a></h3>
+								<hr />
+								<div class="metadata">
+									<span>
+										{% if item.date %}
+											{{ item.date | date_to_long_string }}
+										{% endif %}
+									</span>
+								</div>
+							</div>
+							{% assign prevtitle = item.title %}
+						{% endif %}
+						
+						{{ item.excerpt }}
+						{% if item.excerpt != item.content %}
+							<p style="margin-top:-10px;">
+							    <a class="more" href="{{ post.url }}">Read more...</a>
+							</p>
+						{% endif %}
 					</div>
-					{% assign prevtitle = item.title %}
-				{% else %}
-					<div>
-						<div class="metadata">
-							<span>Posted <strong>{{ item.date | date_to_long_string }}</strong> in <strong>{{ item.collection }}</strong></span>
-						</div>
-						<h3 style="margin-top: 0"><a href="{{ item.url }}"> {{ item.title }} </a></h3>
-					</div>
-					{% assign prevtitle = item.title %}
-				{% endif %}
-				
-				{{ item.excerpt }}
-				{% if item.excerpt != item.content %}
-					<p style="margin-top:-10px;">
-					    <a class="more" href="{{ post.url }}">Read more...</a>
-					</p>
-				{% endif %}
+					{% else %}
+					
+					{% endif %}
+				{% endfor %}
 			</div>
-			{% else %}
-			
-			{% endif %}
-		{% endfor %}
-	</div>
+		</div>
 
 	<!-- comics list -->
 	{% assign prevtitle = '' %}
 	{% assign comics = ((site.comics | sort: 'date') | reverse) | sort: 'title' %}
 	{% for comic in comics %}
 		{% if forloop.first %}
-			<div class="col-lg-4 col-md-6 col-xs-6" >
-				<h1>&nbsp;</h1>
-				<div class="comic-book-wrapper">
-					<div class="comic-book">
-						<h3 class="comic-book-title">{{ comic.title }}</h3>
-						<img src="{{ comic.image_path }}" title="{{ comic.title }}" alt="{{ comic.title }}"/>
+			<div class="col-lg-4" style="padding-left:0">
+				<h1>Latest Pages</h1>
+				<div class="col-lg-4 col-md-3" style="margin-top:0; padding-top:0; padding-left:0;">
+					<div class="comic-book-wrapper">
+						<div class="comic-book">
+							<img src="{{ comic.image_path }}" title="{{ comic.title }}" alt="{{ comic.title }}"/>
+						</div>
+						<a class="post-link" href="{{ comic.url }}" title="{{ comic.title }}" description="Read {{ comic.title }}"></a>
 					</div>
-					<a class="post-link" href="{{ comic.url }}" title="{{ comic.title }}" description="Read {{ comic.title }}"></a>
 				</div>
 			</div>
 		{% else %}
 			{% if comic.title != prevtitle %}
-				<div class="col-lg-4 col-md-6 col-xs-6" >
-					<div class="comic-book-wrapper">
-						<div class="comic-book">
-							<h3 class="comic-book-title">{{ comic.title }}</h3>
-							<img src="{{ comic.image_path }}" title="{{ comic.title }}" alt="{{ comic.title }}"/>
+				<div class="col-lg-4" style="padding-left:0">
+					<div class="col-lg-4 col-md-3" style="padding-left:0">
+						<div class="comic-book-wrapper">
+							<div class="comic-book">
+								<img src="{{ comic.image_path }}" title="{{ comic.title }}" alt="{{ comic.title }}"/>
+							</div>
+							<a class="post-link" href="{{ comic.url }}" title="{{ comic.title }}" description="Read {{ comic.title }}"></a>
 						</div>
-						<a class="post-link" href="{{ comic.url }}" title="{{ comic.title }}" description="Read {{ comic.title }}"></a>
 					</div>
 				</div>
 				{% assign prevtitle = comic.title %}

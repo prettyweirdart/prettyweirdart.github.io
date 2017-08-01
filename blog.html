@@ -2,49 +2,55 @@
 layout: default
 title: "Blog"
 ---
-<div class="row">
-	<div class="col-lg-8">
-		<h1 style="margin-bottom: 0px;">A Pretty Weird Blog</h1>
-		<!-- <p style="margin-top: 10px; font-weight: 800; font-style: italic; color: #9533a9; line-height: 1.5;">News, updates, and musings–the latest &amp; greatest from Pretty Weird Art</p> -->
-		<div class="post">
-			<form action="/search.html" method="get">
-				<div style="margin-top: -25px;">
-					<label for="search">Search This Site:</label>
-					<input class="search" type="text" id="search-box" name="query" style="padding-left: 25px;" placeholder="Search...">
-					<span class="fa fa-search search-icon"></span>
-				</div>
-			</form>
-		</div>
-		{% for post in site.posts %}
+
+<div class="white">
+	<div class="row">
+		<div class="col-lg-8">
+			<h1 style="margin-bottom: 0px;">A Pretty Weird Blog</h1>
+			<!-- <p style="margin-top: 10px; font-weight: 800; font-style: italic; color: #9533a9; line-height: 1.5;">News, updates, and musings–the latest &amp; greatest from Pretty Weird Art</p> -->
 			<div class="post">
-				{% if post.image_path != nil %}
-					<div class="post-header-image-wrapper">
-						<div class="post-header-image" style="background: no-repeat top center/cover url('{{ post.image_path }}');"></div>
+				<form action="/search.html" method="get">
+					<div style="margin-top: -25px;">
+						<label for="search">Search This Site:</label>
+						<input class="search" type="text" id="search-box" name="query" style="padding-left: 25px;" placeholder="Search...">
+						<span class="fa fa-search search-icon"></span>
 					</div>
-				{% endif %}
-				<span class="metadata"><a href="">{{ post.date | date_to_long_string }}</a> :: Posted in: 
-					<ul>
-					{% for category in post.categories %}
-						<li><a href="/categories#{{ category }}">{{ category }}</a></li>
-					{% endfor %}
-					</ul>
-				</span>
-				<h3 style="margin-top: 0"><a href="{{ post.url }}"> {{ post.title }} </a></h3>
-				{{ post.excerpt }}
-				{% if post.excerpt != post.content %}
-					<p style="margin-top:-10px;">
-					    <a class="more" href="{{ post.url }}">Read more...</a>
-					</p>
-				{% endif %}
+				</form>
 			</div>
-		{% endfor %}
-	</div>
-	<div class="col-lg-offset-1 col-lg-3 ">
-		<h4 style="margin-bottom: 0; text-align: right; margin-top: 30px;">Categories</h4>
-		<ul class="cat-list">
-			{% for category in site.categories %}
-				<li><a href="/categories#{{ category | first }}">{{ category | first }}</a></li>
+			{% for post in site.posts %}
+				<div class="post">
+					{% if post.image_path != nil %}
+						<div class="post-header-image-wrapper">
+							<div class="post-header-image" style="background: no-repeat top center/cover url('{{ post.image_path }}');"></div>
+						</div>
+					{% endif %}
+					<span class="metadata"><a href="">{{ post.date | date_to_long_string }}</a> :: Posted in: 
+						<ul>
+						{% for category in post.categories %}
+							<li><a href="/categories#{{ category }}">{{ category }}</a></li>
+						{% endfor %}
+						</ul>
+					</span>
+					<h3 style="margin-top: 0"><a href="{{ post.url }}"> {{ post.title }} </a></h3>
+					{{ post.excerpt }}
+					{% if post.excerpt != post.content %}
+						<p style="margin-top:-10px;">
+						    <a class="more" href="{{ post.url }}">Read more...</a>
+						</p>
+					{% endif %}
+				</div>
 			{% endfor %}
-		</ul>	
+		</div>
+		<div class="col-lg-4 ">
+			<h1>&nbsp;</h1>
+			<div class="post">
+				<h4>Categories/Tags</h4>
+				<ul class="cat-list">
+					{% for category in site.categories %}
+						<li><a href="/categories#{{ category | first }}">{{ category | first }}</a></li>
+					{% endfor %}
+				</ul>	
+			</div>	
+		</div>
 	</div>
 </div>
