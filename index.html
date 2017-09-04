@@ -27,7 +27,7 @@ title: "Pretty Weird Art"
 						</div>
 						<div>
 							<div class="metadata">
-								<span>Posted in {{ item.collection }} on</span>
+								<span>{{ item.collection }}: </span>
 								<span>
 									{% if item.date %}
 										{{ item.date | date_to_long_string }}
@@ -45,7 +45,7 @@ title: "Pretty Weird Art"
 					<div class="col-lg-4">
 						<div class="post" style="margin-top: 0; padding-top: 24px;">
 							<div class="metadata">
-								<span>Posted in {{ item.collection }} on</span> 
+								<span>{{ item.collection }}: </span> 
 								<span>
 									{% if item.date %}
 										{{ item.date | date_to_long_string }}
