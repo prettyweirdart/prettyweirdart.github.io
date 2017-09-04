@@ -53,7 +53,7 @@
                                 {% if comic.title == page.title %}
                                     <!-- Create disabled placeholder if is same page. -->
                                     {% if page.page_num == comic.page_num %}
-                                        <li class="disabled"><a href="{{ comic.url }}">{{ comic.page_num }}</a></li>
+                                        <li class="active"><a href="{{ comic.url }}">{{ comic.page_num }}</a></li>
                                     {% else %}
                                         <li><a href="{{ comic.url }}">{{ comic.page_num }}</a></li>
                                     {% endif %}

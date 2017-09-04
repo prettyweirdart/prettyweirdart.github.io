@@ -2,32 +2,34 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
-				<img class="footer-image" src="{{ site.baseurl }}/images/woose.svg" />
+				<img class="footer-image" src="{{ site.baseurl }}/images/pwa-main-page-logo.svg" alt="Pretty Weird Art Logo" />
 			</div>
-			<div class="col-lg-3">
+			<div class="col-lg-2">
+				<ul style="margin-left: 50px;">
+					<a href="{{ site.baseurl }}"><li>Home</li></a>
+					<a href="{{ site.baseurl }}/about.html"><li>About</li></a>
+					<a href="{{ site.baseurl }}/gallery.html"><li>Gallery</li></a>
+					<a href="{{ site.baseurl }}/comics.html"><li>Comics</li></a>
+					<a href="{{ site.baseurl }}/schedule.html"><li>Schedule</li></a>
+					<a href="{{ site.baseurl }}/contact.html"><li>Contact</li></a>
+					<a href="http://prettyweirdart.storenvy.com"><li>Store</li></a>
+				</ul>
+			</div>
+			<div class="col-lg-4">
+				<h5>Recent Posts</h5>
 				<ul>
-					<h5>Recent Posts</h5>
 					{% assign posts = site.posts | limit: 6 %}
 					{% for post in posts %}
-						<li><a href="{{ post.url }}">{{ post.date | date_to_long_string }}: {{ post.title }}</a></li>
+						<li><a href="{{ post.url }}">{{ post.date | date_to_long_string }}: <strong>{{ post.title }}</strong></a></li>
 					{% endfor %}	
 				</ul>
 			</div>
 			<div class="col-lg-3">
-				<ul>
-					<h5>Recent Comics Updates</h5>
-					{% assign sorted = ((site.comics | sort: 'date') | reverse) | limit: 6 %}
-					{% for comic in sorted %}
-						<li><a href="{{ comic.url }}">{{ comic.title }}</a></li>
-					{% endfor %}
-				</ul>
-			</div>
-			<div class="col-lg-3">
-				<ul>
 				<h5>Upcoming Events</h5>
+				<ul>
 					{% assign conventions = site.conventions | limit: 6 %}
 					{% for convention in conventions %}
-						<li><a href="{{ convention.url }}">{{ convention.start_date | date_to_long_string }}: {{ convention.title }}</a></li>
+						<li><a href="{{ convention.url }}">{{ convention.start_date | date_to_long_string }}: <strong>{{ convention.title }}</strong></a></li>
 					{% endfor %}
 				</ul>
 			</div>
@@ -37,10 +39,28 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 center copyright">
-			<div style="margin-top:20px;"></div>
-			<p>Copyright © 2017 Pretty Weird Art, LLC. All rights reserved.</p>
+			<div style="margin-top:24px;"></div>
+			<p>Copyright &copy; 2017 Pretty Weird Art, LLC. All rights reserved.</p>
+			<p style="margin-top:-16px;">Privacy Policy: We try to avoid collecting your data unless you send it to us. The only cookies we use are the ones we eat. Once you've sent us information, we only plan to use it to sell you our great merch and awesome artworks. We won't sell it to anyone, since half the time we don't even know how to access most of it. Any comments or problems encountered navigating the site should be sent to the <a href="http://jeremiahlangner.me/about.html">webmaster</a>, who lives to make all of everyone's wildest dreams come true, but sometimes he's very slow at it.</p>
 			<div class="social-icons">
-				<a href="{{ site.baseurl }}/contact.html"><span class="fa fa-envelope" /></span></a><a href="{{ site.facebook }}"><span class="fa fa-facebook" /></a><a href="{{ site.instagram }}"><span class="fa fa-instagram" /></a><a href="{{ site.deviantart }}"><span class="fa fa-deviantart" /></a><a href="{{ site.twitter }}"><span class="fa fa-twitter" /></a></span>
+				<a href="{{ site.baseurl }}/contact.html">
+					<span class="fa fa-envelope"></span>
+				</a>
+				<a href="{{ site.facebook }}">
+					<span class="fa fa-facebook"></span>
+				</a>
+				<a href="{{ site.instagram }}">
+					<span class="fa fa-instagram"></span>
+				</a>
+				<a href="{{ site.deviantart }}">
+					<span class="fa fa-deviantart"></span>
+				</a>
+				<a href="{{ site.twitter }}">
+					<span class="fa fa-twitter"></span>
+				</a>
+			</div>
+			<div class="col-lg-8 col-lg-offset-2">
+				<p class="disclaimer">Disclaimer: Any copy on this website that appears to have been written by a drunken ape, with the exception of all blog posts, is completely the fault of the webmaster. All responsibility is disavowed by Ethan Mongin, Pretty Weird Art, and all related individuals. Please contact the webmaster if you find something offensive.</p>
 			</div>
 		</div>
 	</div>

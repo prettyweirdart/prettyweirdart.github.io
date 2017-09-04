@@ -3,21 +3,25 @@ layout: default
 title: "Search Results"
 ---
 <div class="row">
-  <div class="col-lg-8 col-lg-offset-2">
+  <div class="col-lg-8">
 	<h5><a href=" {{ site.baseurl }}/blog.html"> < Back to Blog</a></h5>
 	<h1>Search Results</h1>
-	<form style="margin-top: 40px;" action="/search.html" method="get">
-	  <div style="margin-top: -25px;">
-		<label for="search">Search This Site:</label>
-		<input class="search" type="text" id="search-box" name="query" style="padding-left: 30px;" placeholder="Search...">
-		<span class="fa fa-search" style="float: right; margin-top: -27px;"></span>
-	  </div>
-	</form>
+	<div class="post" style="padding-top:32px;">
+		<form action="/search.html" method="get">
+			<div style="margin-top: -25px;">
+				<label for="search">Search This Site:</label>
+				<input class="search" type="text" id="search-box" name="query" style="padding-left: 25px;" placeholder="Search...">
+				<span style="color: #555;" class="fa fa-search search-icon"></span>
+			</div>
+		</form>
+	</div>
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-8 col-lg-offset-2">
-	<ul id="search-results"></ul>
+  <div class="col-lg-8">
+  	<div class="post">
+		<ul id="search-results"></ul>
+	</div>	
   </div>
 </div>
 
