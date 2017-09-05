@@ -483,6 +483,11 @@ div.post:first-child {
 	padding-bottom: 60px;
 }
 
+.admin {
+	border-bottom: none !important;
+	line-height: 2.0em;
+}
+
 footer {
 	padding-top: 60px;
 	font-family: "Avenir Next";
@@ -755,11 +760,8 @@ input, textarea, button, label, option, select, .button, .hndle {
 	.inverse {
 		display: none;
 	}
-
 	body {
-		padding-top: 55px;
 	}
-    
     .header-icons {
     	display: none;
     }
@@ -768,6 +770,28 @@ input, textarea, button, label, option, select, .button, .hndle {
     }
     .nav>li a:hover {
     	border-bottom: none;
+    }
+    .feature {
+    	margin-top: 32px !important;
+    }
+    footer {
+    	text-align: center;
+    }
+    footer ul {
+    	text-align: left;
+    }
+    footer ul:first-child {
+    	margin-top: 32px;
+    	margin-left: 0 !important;
+    }
+    footer h5 {
+    	text-align: left;
+    }
+    .footer-image {
+    	width: 65%;
+    	margin-left: auto;
+    	margin-right: auto;
+    	text-align: center;
     }
 }
 
