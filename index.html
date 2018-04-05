@@ -51,7 +51,7 @@ title: "Pretty Weird Art"
 								</span>
 							</div>
 							<h4 style="margin-top: 0px">{{ item.title }}</h4>
-							<p style="margin-top: -11px;">{{ item.excerpt | truncate: 255 }}</p>
+							<p style="margin-top: -11px;">{{ item.excerpt | strip_html | truncate: 255 }}</p>
 							<p style="margin-top: -10px;">
 							    <span class="more">View More</span>
 							</p>

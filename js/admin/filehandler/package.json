@@ -1,0 +1,16 @@
+{
+  "name": "filehandler",
+  "version": "1.0.0",
+  "description": "Node app to handle filesystem calls for Pretty Weird Art admin pages.",
+  "main": "filehandler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeremiah Langner",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "gray-matter": "^3.0.2"
+  }
+}

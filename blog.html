@@ -33,7 +33,7 @@ title: "Blog"
 							</span>
 						</div>
 						<h4 style="margin-top:0px"> {{ post.title }} </h4>
-						<p style="margin-top: -11px">{{ post.excerpt }}</p>
+						<p style="margin-top: -11px">{{ post.excerpt | strip_html }}</p>
 						{% if post.excerpt != post.content %}
 							<p style="margin-top:-10px;">
 							    <span class="more">Read more...</span>

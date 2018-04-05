@@ -3,7 +3,7 @@
 
 // Variables
 $primary-color-dark:   #7B1FA2;
-$primary-color:        #79589F;
+$primary-color:        rgb(114, 137, 218);
 $primary-color-light:  #E1BEE7;
 $primary-color-text:   #FFFFFF;
 $accent-color:         #FF4081;
@@ -113,7 +113,7 @@ nav {
 	border: none;
 	min-height:120px;
 	border-top: 25px solid $primary-color;
-	border-bottom: 1.5px solid rgba(0,0,0,0.1);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .navbar-collapse {
@@ -122,6 +122,9 @@ nav {
 
 a {
 	color: $primary-color;
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 h1,h2,h3,h4,h5 {
@@ -131,7 +134,7 @@ h1,h2,h3,h4,h5 {
 h1 {
 	transform: rotate(-2deg);
 	color: $primary-color;
-	font-size: 5.5rem;
+	font-size: 5rem;
 	margin-bottom: 32px;
 }
 
@@ -707,7 +710,12 @@ input, textarea, button, label, option, select, .button, .hndle {
 	font-weight: 700;
 	text-transform: uppercase;
 	padding-bottom: 30px;
-	margin-bottom: 0;	
+	margin-bottom: 0;
+
+	&:hover {
+		color: $primary-color;
+		opacity:0.8;
+	}	
 }
 
 .navbar-default .nav>li a:hover {
